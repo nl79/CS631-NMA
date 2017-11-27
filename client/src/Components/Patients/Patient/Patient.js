@@ -18,11 +18,16 @@ const fields = [
   {
     name:"pnum",
     label:"Patient Number",
-    placeholder: 'Patient Number...'
+    placeholder: 'Patient Number...',
+    disabled: true
   },
   {
     name:"blood_type",
     label:"Blood Type",
+    value:"",
+    type:"select",
+    options:['o+', 'o-', 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-'],
+    default: '',
     placeholder: 'Blood Type...'
   },
   {
@@ -39,7 +44,9 @@ const fields = [
   {
     name:"blood_sugar",
     label:"Blood Sugar",
-    placeholder: 'Blood Sugar...'
+    placeholder: 'Blood Sugar...',
+    type: "number",
+    maxlength: 3
   },
 ];
 

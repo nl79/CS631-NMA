@@ -1,7 +1,7 @@
 <?php
 
 return function($router, $req = null, $db = null) {
-  $router->mount('/api/patient');
+  $router->mount('/api/patients');
 
   $router->post('/', function($router, $params) use ($req, $db) {
 
@@ -15,6 +15,15 @@ return function($router, $req = null, $db = null) {
   });
 
   $router->get('/list', function($router, $params) use ($req, $db) {
+
+    $sql = "SELECT *
+            FROM person as p1, patient as p2
+            WHERE p1.id = p2.id";
+
+    $result = $db->query($sql);
+
+    echo(json_encode($result));
+
 
   });
 

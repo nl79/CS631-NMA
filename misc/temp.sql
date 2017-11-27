@@ -7,7 +7,7 @@ create table person (
     ssn						int						not null,
     firstName				varchar(25)			not null,
     lastName				varchar(25)			not null,
-    gender					enum('m','f')			not null,
+    gender					enum('n/a', 'm','f')			not null,
     dob						date						not null,
     phnumb				int(10)					not null,
     
@@ -101,12 +101,12 @@ create table staff_skill (
 
 -- Patient Section
 create table patient (
-	id									int			not null,
-	pnum							int			not null		auto_increment,
-    blood_type					char(3)		not null,
-    admit_date					date			not null,
-    cholesterol					char(10)	not null,
-    blood_sugar				int			not null,
+	id									int					not null,
+	pnum							int					not null											auto_increment,
+    blood_type					enum('o+', 'o-', 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-')			not null,
+    admit_date					date					not null,
+    cholesterol					char(10)			not null,
+    blood_sugar				int(4)				not null,
     
     
     primary key (pnum),

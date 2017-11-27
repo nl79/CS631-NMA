@@ -8,6 +8,8 @@ export const Text = (props) =>{
             value={props.value}
             onChange={(e)=>{ props.onChange(e.target.value) }}
             id={'id'}
+            disabled={props.config.disabled || '' }
+            maxLength={props.config.maxlength || ''}
             placeholder={props.config.placeholder || '' } />
   );
 };

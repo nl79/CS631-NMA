@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 
 import { PatientService } from '../../../Services/HttpServices/PatientService';
 
+import { browserHistory } from 'react-router';
+
 
 export class List extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      query: ''
+      query: '',
+      list: []
     };
   }
 
@@ -16,6 +19,10 @@ export class List extends Component {
     console.log('componentWillMount');
     PatientService.list().then(res => {
       console.log('res', res);
+      this.setState({
+        ...this.state,
+        list: res.data
+      });
     })
 
   }
@@ -23,7 +30,14 @@ export class List extends Component {
     console.log('submit', this.state.query);
 
   }
+
+  onRowClick(o) {
+    console.log('onrowclick', o);
+
+    browserHistory.push(`/patients/${o.id}/view`);
+  }
   render() {
+    console.log('state', this.state);
     return (
       <div>
         Patient List
@@ -37,6 +51,31 @@ export class List extends Component {
             </div>
           </div>
         </div>
+
+        <table className='table'>
+          <thead>
+          </thead>
+          <tbody className='table-striped'>
+            {
+              this.state.list.map((o, i) => {
+                let keys = Object.keys(o);
+
+                return (
+                  <tr key={i} onClick={ (e) => { this.onRowClick(o) }}>
+                    {
+                      keys.map((k, y) => {
+                        return (
+                          <td>{o[k]}</td>
+                        )
+                      })
+                    }
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </table>
+
       </div>
     );
   }

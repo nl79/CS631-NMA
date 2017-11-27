@@ -43,6 +43,7 @@ export class Form extends Component {
         <h4>{this.props.title || '' }</h4>
         {
           this.props.fields.map((o, i) => {
+            if(o.type === 'hidden') { return; }
             return (<div key={i} className="form-group">
               <label className='control-label'>{o.label}</label>
               <Field

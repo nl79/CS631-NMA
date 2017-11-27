@@ -41,10 +41,10 @@ const fields = [
   {
     name:"gender",
     label:"Gender",
-    value:"",
+    value:"n/a",
     type:"select",
-    options:['', 'm', 'f'],
-    default: ''
+    options:['n/a', 'm', 'f'],
+    default: 'n/a'
   }
 ];
 

@@ -6,9 +6,7 @@ let prefix = '/api/patients';
 export const PatientService = {
 
     save(params) {
-      console.log('PatientService#Save', params);
-
-      let url = '/api/patient';
+      let url = `${prefix}`;
 
       return axios.post(url, params);
 

@@ -1,4 +1,5 @@
 <?php
+  date_default_timezone_set('America/New_York');
   require_once('vendor/alpha-router/index.php');
   require_once('vendor/alpha-request/index.php');
   require_once('vendor/database/index.php');

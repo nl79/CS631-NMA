@@ -632,7 +632,9 @@ class Router {
 
             return $result;
 
-          })->bindTo($this, 'static');
+          });
+
+          $wrapper->bindTo($this, 'static');
 
           $args[] = $preHook($wrapper ,$params, $args);
         } else {
@@ -721,7 +723,9 @@ class Router {
 
           return $result;
 
-        })->bindTo($this, 'static');
+        });
+
+        $wrapper->bindTo($this, 'static');
 
         $result = $hook($wrapper, $params, $args);
       } else {
