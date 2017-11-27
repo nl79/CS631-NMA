@@ -12,6 +12,7 @@ return function($router, $req = null, $db = null) {
     } else {
       echo(json_encode($person->getErrors()));
     }
+
   });
 
   $router->get('/:id', function($router, $params) use ($req, $db) {

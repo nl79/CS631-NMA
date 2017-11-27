@@ -8,6 +8,6 @@ export const Text = (props) =>{
             value={props.value}
             onChange={(e)=>{ props.onChange(e.target.value) }}
             id={'id'}
-            placeholder={props.placeholder || '' } />
+            placeholder={props.config.placeholder || '' } />
   );
 };

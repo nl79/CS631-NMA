@@ -1,7 +1,18 @@
 <?php
 
 return function($router, $req = null, $db = null) {
-  $router->mount('/api/patients');
+  $router->mount('/api/patient');
+
+  $router->post('/', function($router, $params) use ($req, $db) {
+
+    $patient = $db->model('patient');
+    $patient->set($req->raw());
+    if($patient->save()) {
+      echo(json_encode($patient->toArray()));
+    } else {
+      echo(json_encode($patient->getErrors()));
+    }
+  });
 
   $router->get('/list', function($router, $params) use ($req, $db) {
 

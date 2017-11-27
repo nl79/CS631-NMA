@@ -12,6 +12,7 @@ const fields = [
   {
     name:"id",
     label:"id",
+    type:"hidden",
     placeholder: 'id'
   },
   {
@@ -59,12 +60,15 @@ export class Patient extends Component {
       patient: {...fields}
     });
 
+    let person,
+        patient;
+
     // Save the person object.
     PersonService.save(this.state.person)
       .then((res) => {
         console.log('PersonService.save#res', res);
 
-        return PatientService.save(this.state.patient)
+        return PatientService.save({...this.state.patient, id: res.data.id})
       }).then((res) => {
         console.log('PatientService.save#res', res);
 
