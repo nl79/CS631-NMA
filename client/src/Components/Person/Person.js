@@ -30,6 +30,7 @@ const fields = [
   {
     name:"dob",
     label:"Date of Birth",
+    type: "date",
     placeholder: 'Date of Birth(YYYY-MM-DD)..'
   },
   {

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export const Text = (props) =>{
   return (
-    <input type={ props.type || "text" }
+    <input type={ props.config.type || "text" }
             className={ props.className }
             name={props.name || '' }
             value={props.value}

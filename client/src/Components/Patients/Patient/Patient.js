@@ -27,6 +27,7 @@ const fields = [
   {
     name:"admit_date",
     label:"Date of Admission",
+    type:"date",
     placeholder: 'Date of Admission...'
   },
   {
