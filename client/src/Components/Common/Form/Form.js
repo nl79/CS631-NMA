@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Field } from './Field';
 
 export class Form extends Component {
+
   constructor(props) {
     super(props);
 
@@ -13,8 +14,15 @@ export class Form extends Component {
         state[props.fields[i].name] = props.fields[i].default || '';
       }
     }
-
     this.state = state;
+  }
+
+  componentWillMount() { }
+
+  componentWillReceiveProps(props) {
+    if(props.data) {
+      this.setState( {...props.data} );
+    }
   }
 
   onChange(field, value) {
@@ -24,18 +32,16 @@ export class Form extends Component {
         this.props.onChange({...this.state});
       }
     });
-
   }
 
   onSubmit() {
+
     if(this.props.onSubmit) {
       this.props.onSubmit({...this.state});
     }
   }
 
-  getData() {
-
-  }
+  getData() { }
 
   render() {
     return (

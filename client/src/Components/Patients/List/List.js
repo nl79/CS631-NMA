@@ -16,12 +16,10 @@ export class List extends Component {
   }
 
   componentWillMount() {
-    console.log('componentWillMount');
     PatientService.list().then(res => {
-      console.log('res', res);
       this.setState({
         ...this.state,
-        list: res.data
+        list: res.data || []
       });
     })
 
@@ -37,7 +35,7 @@ export class List extends Component {
     browserHistory.push(`/patients/${o.id}/view`);
   }
   render() {
-    console.log('state', this.state);
+    console.log('this', this);
     return (
       <div>
         Patient List

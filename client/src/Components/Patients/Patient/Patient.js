@@ -54,72 +54,86 @@ export class Patient extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      person: {},
-      patient: {}
-    };
+    this.state = {};
 
   }
+
+  componentWillMount() {
+    // Check if an id was supplied
+    let id = this.props.id || this.props.routeParams.id;
+
+    if(id) {
+      PatientService.get(id).then((res) => {
+        this.setState({
+          ...this.state
+        });
+      })
+    }
+  }
+
+  componentDidUpdate() {
+  }
+
   onSubmit(fields) {
-    console.log('Patient#onSubmit', fields);
-    this.setState({
-      ...this.state,
-      patient: {...fields}
-    });
-
-    let person,
-        patient;
-
-    // Save the person object.
-    PersonService.save(this.state.person)
+    PatientService.save(fields)
       .then((res) => {
-        console.log('PersonService.save#res', res);
-
-        return PatientService.save({...this.state.patient, id: res.data.id})
-      }).then((res) => {
         console.log('PatientService.save#res', res);
-
-    });
-
-    // Save the patient object.
-
+        this.setState({
+          ...res.data
+        });
+      });
   }
 
   onChange(fields) {
-    console.log('Patient#onChange', fields);
+
     this.setState({
-      ...this.state,
-      patient: {...fields}
+      ...fields,
+      ...this.state
     });
   }
 
   onPersonSubmit(fields) {
-    console.log('onPersonSubmit', fields);
 
-
-
+    this.setState(
+      {
+        ...this.state,
+        id: fields.id
+      }
+    );
   }
 
   onPersonChange(fields) {
-    //console.log('onPersonChange', fields);
-    this.setState({
-      ...this.state,
-      person: {...fields}
-    });
   }
 
-  render() {
+
+  renderPatientData(id) {
+    if(!id) { return null }
+
     return (
       <div>
-        <h2>Patient Information</h2>
-        <Person
-          onChange={ this.onPersonChange.bind(this) } />
         <Form title="Patient Information"
               fields={fields}
+              data={this.state}
               onChange={ this.onChange.bind(this) }
               onSubmit={ this.onSubmit.bind(this) } />
         <Conditions patient={2} />
       </div>
-    );
+    )
   }
+
+  render() {
+    console.log('this.state', this.state);
+    return (
+      <div>
+        <h2>Patient Information</h2>
+        <Person
+          id={this.state.id}
+          onSubmit={ this.onPersonSubmit.bind(this) } />
+
+          { this.renderPatientData(this.state.id) }
+
+      </div>
+    )
+  }
+
 }

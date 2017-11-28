@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Form } from '../Common';
 
+import { PersonService } from '../../Services/HttpServices/PersonServices';
+
+
 /*
 	  id							int						not null auto_increment,
     ssn						int						not null,
@@ -52,15 +55,48 @@ export class Person extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {};
+
   }
 
-  onSubmit(fields) {
-    if(this.props.onSubmit) {
-      this.props.onSubmit(fields);
+  fetchPerson(id) {
+    console.log('fetchPerson', id);
+    if(id) {
+      PersonService.get(id).then((res) => {
+        this.setState({...res.data});
+      })
     }
   }
 
+  componentWillMount() {
+
+    this.fetchPerson(this.props.id);
+
+  }
+
+  componentWillReceiveProps(props) {
+    //console.log('Person#componentWillReceiveProps#props', props);
+
+    // if person data has not been loaded, or does not exist. fetch it.
+    if(props.id !== this.state.id) {
+      this.fetchPerson(props.id);
+    }
+
+  }
+
+  onSubmit(fields) {
+    // Save the person object.
+    PersonService.save(fields)
+      .then((res) => {
+        this.setState({...res.data});
+        if(this.props.onSubmit) {
+          this.props.onSubmit(res.data);
+        }
+      });
+  }
+
   onChange(fields) {
+    this.setState({...fields});
     if(this.props.onChange) {
       this.props.onChange(fields);
     }
@@ -74,8 +110,9 @@ export class Person extends Component {
     return (
       <Form title="Personal Information"
             fields={fields}
-            onChange={ this.props.onChange }
-            onSubmit={ this.props.onSubmit }/>
+            data={this.state}
+            onChange={ this.onChange.bind(this) }
+            onSubmit={ this.onSubmit.bind(this) }/>
     );
   }
 }

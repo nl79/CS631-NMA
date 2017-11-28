@@ -23,11 +23,16 @@ return function($router, $req = null, $db = null) {
     $result = $db->query($sql);
 
     echo(json_encode($result));
-
-
   });
 
   $router->get('/:id', function($router, $params) use ($req, $db) {
+
+    $patient = $db->model('patient')->load($params['id']);
+    if(!$patient->isEmpty()) {
+      echo(json_encode($patient->toArray()));
+    } else {
+      header("Status: 404 Not Found");
+    }
 
   });
 

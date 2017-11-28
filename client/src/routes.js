@@ -18,7 +18,7 @@ import * as Facilities from './Components/Facilities';
 export default (
   <Route path='/' component={App}>
     <IndexRoute component={Dashboard} />
-    <Route path='/patients'>
+    <Route path='/patients' component={Patients.View}>
       <IndexRoute component={Patients.Dashboard} />
       <Route path='/patients/list' component={Patients.List} />
       <Route path='/patients/new' component={Patients.Patient} />
