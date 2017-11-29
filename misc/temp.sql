@@ -3,13 +3,13 @@ CREATE DATABASE nma;
 USE nma;
 
 create table person (
-	id							int						not null auto_increment,
-    ssn						int						not null,
-    firstName				varchar(25)			not null,
-    lastName				varchar(25)			not null,
+	id							int									not null auto_increment,
+    ssn						int									not null,
+    firstName				varchar(25)						not null,
+    lastName				varchar(25)						not null,
     gender					enum('n/a', 'm','f')			not null,
-    dob						date						not null,
-    phnumb				int(10)					not null,
+    dob						date									not null,
+    phnumb				char(11)							not null,
     
 	primary key(id)
 );

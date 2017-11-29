@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Person } from '../../Person';
 import { Form } from '../../Common';
 
-import { Conditions } from '../Conditions';
-
-import { PersonService } from '../../../Services/HttpServices/PersonServices';
 import { PatientService } from '../../../Services/HttpServices/PatientService';
 
 const fields = [
@@ -27,7 +24,7 @@ const fields = [
     value:"",
     type:"select",
     options:['o+', 'o-', 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-'],
-    default: '',
+    default: 'o+',
     placeholder: 'Blood Type...'
   },
   {
@@ -39,7 +36,9 @@ const fields = [
   {
     name:"cholesterol",
     label:"Cholesterol",
-    placeholder: 'Cholesterol...'
+    placeholder: 'Cholesterol...',
+    type: "number",
+    maxlength: 3
   },
   {
     name:"blood_sugar",
@@ -58,82 +57,56 @@ export class Patient extends Component {
 
   }
 
-  componentWillMount() {
-    // Check if an id was supplied
-    let id = this.props.id || this.props.routeParams.id;
 
+  fetch(id) {
     if(id) {
-      PatientService.get(id).then((res) => {
-        this.setState({
-          ...this.state
-        });
-      })
+      PersonService.get(id).then((res) => {
+        this.setState({...res.data});
+      });
     }
   }
 
-  componentDidUpdate() {
+  componentWillMount() {
+
+    this.fetch(this.props.id);
+
+  }
+
+  componentWillReceiveProps(props) {
+
+    // if person data has not been loaded, or does not exist. fetch it.
+    if(props.id !== this.state.id) {
+      this.fetch(props.id);
+    }
+
   }
 
   onSubmit(fields) {
+    // Save the person object.
     PatientService.save(fields)
       .then((res) => {
-        console.log('PatientService.save#res', res);
-        this.setState({
-          ...res.data
-        });
+        this.setState({...res.data});
+        if(this.props.onSubmit) {
+          this.props.onSubmit(res.data);
+        }
       });
   }
 
   onChange(fields) {
-
-    this.setState({
-      ...fields,
-      ...this.state
-    });
-  }
-
-  onPersonSubmit(fields) {
-
-    this.setState(
-      {
-        ...this.state,
-        id: fields.id
-      }
-    );
-  }
-
-  onPersonChange(fields) {
-  }
-
-
-  renderPatientData(id) {
-    if(!id) { return null }
-
-    return (
-      <div>
-        <Form title="Patient Information"
-              fields={fields}
-              data={this.state}
-              onChange={ this.onChange.bind(this) }
-              onSubmit={ this.onSubmit.bind(this) } />
-        <Conditions patient={2} />
-      </div>
-    )
+    this.setState({...fields});
+    if(this.props.onChange) {
+      this.props.onChange(fields);
+    }
   }
 
   render() {
-    console.log('this.state', this.state);
     return (
-      <div>
-        <h2>Patient Information</h2>
-        <Person
-          id={this.state.id}
-          onSubmit={ this.onPersonSubmit.bind(this) } />
-
-          { this.renderPatientData(this.state.id) }
-
-      </div>
-    )
+      <Form
+        title="Patient Information"
+        fields={fields}
+        data={this.state}
+        onChange={ this.onChange.bind(this) }
+        onSubmit={ this.onSubmit.bind(this) } />
+    );
   }
-
 }

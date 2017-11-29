@@ -31,6 +31,7 @@ export class Condition extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {};
   }
 
   componentWillMount(props) {
@@ -38,7 +39,9 @@ export class Condition extends Component {
   }
 
   onSubmit(params) {
-    console.log('Condition', params);
+    if(this.props.onSubmit) {
+      this.props.onSubmit(params);
+    }
   }
 
   render() {

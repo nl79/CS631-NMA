@@ -11,7 +11,13 @@ export class Form extends Component {
 
     if(Array.isArray(props.fields)) {
       for(let i = 0; i < props.fields.length; ++i) {
+
         state[props.fields[i].name] = props.fields[i].default || '';
+
+        // Check if data was pre-supplied to the form.
+        if(props.data && props.data[props.fields[i].name]) {
+          state[props.fields[i].name] = props.data[props.fields[i].name] || '';
+        }
       }
     }
     this.state = state;

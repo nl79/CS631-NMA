@@ -16,11 +16,13 @@ export class Conditions extends Component {
   }
 
   componentWillMount(props) {
-    console.log('componentDidRecieveProps', props);
+    console.log('Conditions#componentDidRecieveProps', props);
 
   }
 
   onConditionSubmit(params) {
+
+    console.log('onConditionSubmit#params', params);
 
   }
 
@@ -29,6 +31,10 @@ export class Conditions extends Component {
   }
 
   render() {
+    if(!this.props.patient) {
+      return null;
+    }
+
     return (
       <div>
         <h4>Conditions</h4>

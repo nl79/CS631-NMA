@@ -28,7 +28,10 @@ const fields = [
   {
     name:"ssn",
     label:"SSN",
-    placeholder: 'SSN..'
+    placeholder: 'SSN..',
+    type: "number",
+    maxlength: 9
+
   },
   {
     name:"dob",
@@ -39,7 +42,9 @@ const fields = [
   {
     name:"phnumb",
     label:"Phone Number",
-    placeholder: 'Phone Number..'
+    placeholder: 'Phone Number..',
+    type: "number",
+    maxlength: 10
   },
   {
     name:"gender",
@@ -60,11 +65,10 @@ export class Person extends Component {
   }
 
   fetchPerson(id) {
-    console.log('fetchPerson', id);
     if(id) {
       PersonService.get(id).then((res) => {
         this.setState({...res.data});
-      })
+      });
     }
   }
 
@@ -75,8 +79,7 @@ export class Person extends Component {
   }
 
   componentWillReceiveProps(props) {
-    //console.log('Person#componentWillReceiveProps#props', props);
-
+    
     // if person data has not been loaded, or does not exist. fetch it.
     if(props.id !== this.state.id) {
       this.fetchPerson(props.id);
