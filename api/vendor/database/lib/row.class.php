@@ -417,9 +417,15 @@ class Row
     // Check if Ignore flag is set.
     $sql .= isset($args['ignore']) && $args['ignore'] === true ? 'IGNORE ' : '';
 
-    $sql .= 'INTO ' . $this->_tableName;
+    $sql .= 'INTO ' . "`$this->_tableName`";
+
+    // Escape Function
+    $escape = function($n) {
+      return "`$n`";
+    };
+    
     // Set the field names.
-    $sql .= '(' . implode(',',$this->getFieldNames()) . ')';
+    $sql .= '(' . implode(',', array_map($escape, $this->getFieldNames())) . ')';
 
     $sql .= ' VALUES';
 

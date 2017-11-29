@@ -27,7 +27,8 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/:id', function($router, $params) use ($req, $db) {
 
-    $patient = $db->model('patient')->load($params['id']);
+    $patient = $db->model('patient')->where('id', $params['id']);
+
     if(!$patient->isEmpty()) {
       echo(json_encode($patient->toArray()));
     } else {
@@ -36,11 +37,29 @@ return function($router, $req = null, $db = null) {
 
   });
 
-  $router->get('/:id/conditions', function($router, $params) use ($req, $db) {
+  $router->post('/:id/condition', function($router, $params) use ($req, $db) {
+    $pc = $db->model('patient_condition');
+    $pc->set($req->raw());
+    // Set the patient id from the route $params
+    $pc->set('patient', $params['id']);
+    if($pc->save()) {
+      echo(json_encode($pc->toArray()));
+    } else {
+      echo(json_encode($pc->getErrors()));
+    }
 
   });
 
-  $router->post('/:id/conditions', function($router, $params) use ($req, $db) {
+  $router->get('/:id/conditions', function($router, $params) use ($req, $db) {
+    $sql = "SELECT c.id, c.`name`, c.description, ct.`name` as `type`
+            FROM patient as p, patient_condition as pc, `condition` as c, condition_type as ct
+            WHERE p.id = pc.patient
+              AND pc.condition = c.id
+              AND c.type = ct.id
+              AND p.id = " . $db->escape($params['id']);
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
 
   });
 };

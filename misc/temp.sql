@@ -226,3 +226,8 @@ create table prescription (
     foreign key(staff) references staff(id)
 );
 
+
+-- Default Data
+insert into condition_type(`name`)
+values ('allergy'), ('disease'),('illness');
+

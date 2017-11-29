@@ -1,9 +1,9 @@
 
 import axios from "axios";
 
-let prefix = '/api/patients';
+let prefix = '/api/conditions';
 
-export const PatientService = {
+export const ConditionService = {
 
     save(params) {
       let url = `${prefix}`;
@@ -22,13 +22,8 @@ export const PatientService = {
       return axios.get(url, params);
     },
 
-    addCondition(patient, condition) {
-      let url = `${prefix}/${patient}/condition`;
-      return axios.post(url, {condition});
-    },
-
-    conditions(id) {
-      let url = `${prefix}/${id}/conditions`;
+    types() {
+      let url = `${prefix}/types`;
       return axios.get(url);
     }
 }

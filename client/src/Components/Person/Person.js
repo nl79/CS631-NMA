@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { Form } from '../Common';
+import { State } from '../../Utils';
 
 import { PersonService } from '../../Services/HttpServices/PersonServices';
 
-
-/*
-	  id							int						not null auto_increment,
-    ssn						int						not null,
-    firstName			varchar(25)			not null,
-    lastName			varchar(25)			not null,
-    gender				enum('m','f')			not null,
-    dob						date						not null,
-    phnumb				int(10)					not null,
- */
 const fields = [
-  //{ id:"name", label:"Client Name" },
+  {
+    name:"id",
+    label:"id",
+    type:"hidden",
+    placeholder: 'id'
+  },
   {
     name:"firstName",
     label:"First Name",
@@ -60,46 +56,38 @@ export class Person extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      data: '',
+      error: ''
+    };
 
   }
 
   fetchPerson(id) {
     if(id) {
       PersonService.get(id).then((res) => {
-        this.setState({...res.data});
+        this.setState({data: {...res.data}}, (o) => {
+          if(this.props.onLoad) {
+            this.props.onLoad(this.state.data);
+          }
+        });
       });
     }
   }
 
   componentWillMount() {
-
     this.fetchPerson(this.props.id);
-
-  }
-
-  resetState(o) {
-    let state = {},
-        keys = Object.keys(o);
-
-    for( let key in o) {
-      if(o.hasOwnProperty(key)) {
-        o[key] = '';
-      }
-    }
-
-    return o;
   }
 
   componentWillReceiveProps(props) {
 
     if(!props.id){
       this.setState((e) => {
-        return {...this.resetState(e)}
+        return {data: {...State.reset(e.data)}}
       });
     }
     // if person data has not been loaded, or does not exist. fetch it.
-    if(props.id !== this.state.id) {
+    if(props.id !== this.state.data.id) {
       this.fetchPerson(props.id);
     }
 
@@ -109,15 +97,21 @@ export class Person extends Component {
     // Save the person object.
     PersonService.save(fields)
       .then((res) => {
-        this.setState({...res.data});
-        if(this.props.onSubmit) {
-          this.props.onSubmit(res.data);
+
+        if(res.data.id) {
+          this.setState({data: {...res.data}});
+          if(this.props.onSubmit) {
+            this.props.onSubmit(res.data);
+          }
+        } else {
+          // Report Error
         }
+
       });
   }
 
   onChange(fields) {
-    this.setState({...fields});
+    this.setState({data: {...fields}});
     if(this.props.onChange) {
       this.props.onChange(fields);
     }
@@ -132,8 +126,7 @@ export class Person extends Component {
       <Form
         title="Personal Information"
         fields={fields}
-        data={this.state}
-        onChange={ this.onChange.bind(this) }
+        data={this.state.data}
         onSubmit={ this.onSubmit.bind(this) }/>
     );
   }

@@ -64,9 +64,7 @@ export class View extends Component {
   componentWillReceiveProps(props) {
     let id = props.id || props.routeParams.id;
     if(!id) {
-      console.log('reseting');
       this.setState({id: null}, () => {
-        console.log('this.state', this.state);
       });
     }
   }
@@ -80,25 +78,6 @@ export class View extends Component {
     }
   }
 
-  componentDidUpdate() {
-  }
-
-  onSubmit(fields) {
-    PatientService.save(fields)
-      .then((res) => {
-        this.setState({
-          ...res.data
-        });
-      });
-  }
-
-  onChange(fields) {
-    this.setState({
-      ...this.state,
-      ...fields
-    });
-  }
-
   onPersonSubmit(fields) {
 
     this.setState(
@@ -109,30 +88,17 @@ export class View extends Component {
     );
   }
 
-  onPatientSubmit(field) {
-
+  onPatientSubmit(fields) {
+    this.setState(
+      {
+        ...this.state,
+        pnum: fields.pnum
+      }
+    );
   }
 
-  onPersonChange(fields) {
-  }
+  onConditionSubmit(fields) {
 
-  renderPatientData(id) {
-    if(!id) { return null }
-
-    return (
-      <div>
-        <Form
-              title="Patient Information"
-              fields={fields}
-              data={this.state}
-              onChange={ this.onChange.bind(this) }
-              onSubmit={ this.onSubmit.bind(this) } />
-            {
-              this.state.pnum ?
-                <Conditions patient={this.state.id} /> : null
-            }
-      </div>
-    )
   }
 
   render() {
@@ -145,7 +111,15 @@ export class View extends Component {
 
         <Patient
           id={this.state.id}
-          onSubmit={ this.onPersonSubmit.bind(this) } />
+          onSubmit={ this.onPatientSubmit.bind(this) }
+          onLoad={ this.onPatientSubmit.bind(this) } />
+
+        {
+          this.state.pnum ?
+          <Conditions
+            id={this.state.id}
+            onSubmit={ this.onConditionSubmit.bind(this) } /> : null
+        }
 
       </div>
     )

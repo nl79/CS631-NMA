@@ -20,7 +20,7 @@ export class Form extends Component {
 
         // Check if data was pre-supplied to the form.
         if(props.data && props.data[props.fields[i].name]) {
-          state[props.fields[i].name] = props.data[props.fields[i].name] || '';
+          state[props.fields[i].name] = props.data[props.fields[i].name];
         }
       }
     }
@@ -31,9 +31,12 @@ export class Form extends Component {
   componentWillMount() { }
 
   componentWillReceiveProps(props) {
+    this.setState( this.initState(props) );
+    /*
     if(props.data) {
-      this.setState( {...props.data} );
+      this.setState( this.initState(props) );
     }
+    */
   }
 
   onChange(field, value) {

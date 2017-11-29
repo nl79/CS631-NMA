@@ -11,11 +11,11 @@ export const Select = (props) => {
       }>
       {
         config.options.map((o, i) => {
-          return (
-            <option
-              key={i}
-              value={o}>{o}</option>
-          )
+
+          return (typeof o === 'string' )
+          ? <option key={i} value={o}>{o}</option>
+          : <option key={i} value={o.key || ''}>{o.value || ''}</option>
+
         })
       }
     </select>

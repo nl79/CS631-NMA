@@ -15,11 +15,13 @@
   $personRoutes = require_once('routes/person.route.php');
   $patientRoutes = require_once('routes/patient.route.php');
   $staffRoutes = require_once('routes/staff.route.php');
+  $conditionRoutes = require_once('routes/condition.route.php');
 
   // Register routes.
   $personRoutes($router, $Request, $database);
   $patientRoutes($router, $Request, $database);
   $staffRoutes($router, $Request, $database);
+  $conditionRoutes($router, $Request, $database);
 
   // Execute the route.
   $router->route($Request->method(), $Request->getReqUri());

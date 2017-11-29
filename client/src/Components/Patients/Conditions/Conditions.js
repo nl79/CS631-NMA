@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { PersonService } from '../../../Services/HttpServices/PersonServices';
+import { PatientService } from '../../../Services/HttpServices/PatientService';
+import { ConditionService } from '../../../Services/HttpServices/ConditionService';
 
 import { Condition } from './Condition';
 import { List } from './List';
@@ -9,21 +10,41 @@ export class Conditions extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      id: props.id || '',
+      data: '',
+      error: ''
+    };
   }
 
   fetch(id) {
+    if(id) {
+      PatientService.conditions(id).then((res) => {
+        this.setState({data: res.data}, (o) => {
+          console.log('this.state', this.state);
+        })
 
+      });
+    }
   }
 
-  componentWillMount(props) {
-    console.log('Conditions#componentDidRecieveProps', props);
-
+  componentWillMount() {
+    this.fetch(this.props.id);
   }
 
   onConditionSubmit(params) {
-
-    console.log('onConditionSubmit#params', params);
-
+    ConditionService.save(params)
+      .then((res) => {
+        if(res.data.id) {
+          return PatientService.addCondition(this.props.id, res.data.id);
+        }
+      })
+      .then((res) => {
+        //reload the conditions list.
+        if(res.data.patient) {
+          return this.fetch(res.data.patient);
+        }
+      });
   }
 
   onListUpdate(params) {
@@ -31,7 +52,7 @@ export class Conditions extends Component {
   }
 
   render() {
-    if(!this.props.patient) {
+    if(!this.props.id) {
       return null;
     }
 
@@ -39,7 +60,7 @@ export class Conditions extends Component {
       <div>
         <h4>Conditions</h4>
         <Condition onSubmit={this.onConditionSubmit.bind(this)}/>
-        <List />
+        <List list={this.state.data}/>
       </div>
     );
   }

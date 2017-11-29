@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Person } from '../../Person';
 import { Form } from '../../Common';
 
+import { State } from '../../../Utils';
+
 import { PatientService } from '../../../Services/HttpServices/PatientService';
 
 const fields = [
@@ -53,54 +55,67 @@ export class Patient extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      data: '',
+      error: ''
+    };
   }
 
   fetch(id) {
     if(id) {
       PatientService.get(id).then((res) => {
-        this.setState({...res.data});
+
+        let data;
+        if(Array.isArray(res.data) && res.data.length){
+          data = res.data[0];
+        } else {
+          data = res.data;
+        }
+
+        this.setState({data: {...this.state.data, ...data}}, (o) => {
+          if(this.props.onLoad) {
+            this.props.onLoad(this.state.data);
+          }
+        });
       });
     }
   }
 
   componentWillMount() {
-
     this.fetch(this.props.id);
-
   }
 
   componentWillReceiveProps(props) {
+
+
     if(!props.id){
-      this.setState({id: null});
+      this.setState((e) => {
+        return {data: {...State.reset(e.data)}}
+      });
     }
     // if person data has not been loaded, or does not exist. fetch it.
-    if(props.id !== this.state.id) {
+    if(props.id !== this.state.data.id) {
+      this.setState({data: {id: props.id}});
       this.fetch(props.id);
     }
-
   }
 
   onSubmit(fields) {
     // Save the person object.
     PatientService.save(fields)
       .then((res) => {
-        this.setState({...res.data});
-        if(this.props.onSubmit) {
-          this.props.onSubmit(res.data);
+        if(res.data.id) {
+          this.setState({data: {...res.data}}, (o) => {
+            if(this.props.onSubmit) {
+              this.props.onSubmit(this.state.data);
+            }
+          });
         }
       });
   }
 
-  onChange(fields) {
-    this.setState({...fields});
-    if(this.props.onChange) {
-      this.props.onChange(fields);
-    }
-  }
-
   render() {
-    if(!this.state.id) {
+    if(!this.state.data.id) {
       return null;
     }
 
@@ -108,8 +123,7 @@ export class Patient extends Component {
       <Form
         title="Patient Information"
         fields={fields}
-        data={this.state}
-        onChange={ this.onChange.bind(this) }
+        data={this.state.data}
         onSubmit={ this.onSubmit.bind(this) } />
     );
   }

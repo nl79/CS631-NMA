@@ -161,7 +161,7 @@ class Database
   public function getModel($name) {
 
     //get the row data
-    if($schema = $this->describe($name)) {
+    if($schema = $this->describe("`$name`")) {
 
       //create a new Model object.
       //Todo: Can probably assign the _Middleware as a parameter to preven the looping durring middlware assignment.
