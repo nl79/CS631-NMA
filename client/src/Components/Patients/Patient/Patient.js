@@ -54,13 +54,11 @@ export class Patient extends Component {
     super(props);
 
     this.state = {};
-
   }
-
 
   fetch(id) {
     if(id) {
-      PersonService.get(id).then((res) => {
+      PatientService.get(id).then((res) => {
         this.setState({...res.data});
       });
     }
@@ -73,7 +71,9 @@ export class Patient extends Component {
   }
 
   componentWillReceiveProps(props) {
-
+    if(!props.id){
+      this.setState({id: null});
+    }
     // if person data has not been loaded, or does not exist. fetch it.
     if(props.id !== this.state.id) {
       this.fetch(props.id);
@@ -100,6 +100,10 @@ export class Patient extends Component {
   }
 
   render() {
+    if(!this.state.id) {
+      return null;
+    }
+
     return (
       <Form
         title="Patient Information"

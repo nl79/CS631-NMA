@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Person } from '../../Person';
+import { Patient } from './Patient';
 import { Form } from '../../Common';
 
 import { Conditions } from '../Conditions';
@@ -61,7 +62,6 @@ export class View extends Component {
   }
 
   componentWillReceiveProps(props) {
-
     let id = props.id || props.routeParams.id;
     if(!id) {
       console.log('reseting');
@@ -76,11 +76,7 @@ export class View extends Component {
     let id = this.props.id || this.props.routeParams.id;
 
     if(id) {
-      PatientService.get(id).then((res) => {
-        this.setState({
-          ...res.data
-        });
-      })
+      this.setState({id: id})
     }
   }
 
@@ -147,7 +143,9 @@ export class View extends Component {
           id={this.state.id}
           onSubmit={ this.onPersonSubmit.bind(this) } />
 
-          { this.renderPatientData(this.state.id) }
+        <Patient
+          id={this.state.id}
+          onSubmit={ this.onPersonSubmit.bind(this) } />
 
       </div>
     )

@@ -78,8 +78,26 @@ export class Person extends Component {
 
   }
 
+  resetState(o) {
+    let state = {},
+        keys = Object.keys(o);
+
+    for( let key in o) {
+      if(o.hasOwnProperty(key)) {
+        o[key] = '';
+      }
+    }
+
+    return o;
+  }
+
   componentWillReceiveProps(props) {
-    
+
+    if(!props.id){
+      this.setState((e) => {
+        return {...this.resetState(e)}
+      });
+    }
     // if person data has not been loaded, or does not exist. fetch it.
     if(props.id !== this.state.id) {
       this.fetchPerson(props.id);
@@ -111,11 +129,12 @@ export class Person extends Component {
 
   render() {
     return (
-      <Form title="Personal Information"
-            fields={fields}
-            data={this.state}
-            onChange={ this.onChange.bind(this) }
-            onSubmit={ this.onSubmit.bind(this) }/>
+      <Form
+        title="Personal Information"
+        fields={fields}
+        data={this.state}
+        onChange={ this.onChange.bind(this) }
+        onSubmit={ this.onSubmit.bind(this) }/>
     );
   }
 }

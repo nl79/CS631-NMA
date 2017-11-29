@@ -7,6 +7,10 @@ export class Form extends Component {
   constructor(props) {
     super(props);
 
+    this.state = this.initState(props);
+  }
+
+  initState(props) {
     let state = {};
 
     if(Array.isArray(props.fields)) {
@@ -20,7 +24,8 @@ export class Form extends Component {
         }
       }
     }
-    this.state = state;
+
+    return state;
   }
 
   componentWillMount() { }
