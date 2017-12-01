@@ -25,20 +25,27 @@ export class List extends Component {
 
   }
   submit() {
-    console.log('submit', this.state.query);
 
+    if(this.props.onSearch) {
+      this.props.onSearch(o);
+    } else {
+        //perform search
+    }
   }
 
   onRowClick(o) {
-    console.log('onrowclick', o);
 
-    browserHistory.push(`/patients/${o.id}/view`);
+    if(this.props.onSelect) {
+      this.props.onSelect(o);
+    } else {
+      browserHistory.push(`/patients/${o.id}/view`);
+    }
   }
+
   render() {
-    console.log('this', this);
     return (
       <div>
-        Patient List
+        { this.props.title || 'Patient List' }
         <div className='row'>
           <div className="col-lg-6">
             <div className="input-group">

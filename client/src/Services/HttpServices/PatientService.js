@@ -17,6 +17,11 @@ export const PatientService = {
       return axios.get(url);
     },
 
+    profile(id) {
+      let url = `${prefix}/${id}/profile`;
+      return axios.get(url);
+    },
+
     list(params) {
       let url = `${prefix}/list`;
       return axios.get(url, params);

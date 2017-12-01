@@ -23,6 +23,8 @@ export default (
       <Route path='/patients/list' component={Patients.List} />
       <Route path='/patients/new' component={Patients.Patient.View} />
       <Route path='/patients/:id/view' component={Patients.Patient.View} />
+      <Route path='/patients/management' component={Patients.Management.Dashboard} />
+      <Route path='/patients/:id/management' component={Patients.Management.Dashboard} />
     </Route>
     <Route path='/staff'>
       <IndexRoute component={Staff.Dashboard} />

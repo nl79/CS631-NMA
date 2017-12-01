@@ -8,7 +8,6 @@ import { PatientService } from '../../../Services/HttpServices/PatientService';
 import { StaffService } from '../../../Services/HttpServices/StaffService';
 
 const fields = [
-  //{ id:"name", label:"Client Name" },
   {
     name:"id",
     label:"id",
@@ -63,9 +62,7 @@ export class Patient extends Component {
     };
   }
 
-  init(id) {
-    this.buildFieldList();
-
+  fetch(id) {
     if(id) {
       PatientService.get(id).then((res) => {
 
@@ -85,12 +82,15 @@ export class Patient extends Component {
     }
   }
 
+  init(id) {
+    this.buildFieldList();
+    this.fetch(id);
+  }
+
   buildFieldList() {
     StaffService.inRole({role: ['surgeon', 'physician']}).then((res) => {
-      console.log('StaffService.inRole', res);
 
       let opts = Array.isArray(res.data) ? res.data.map((o) => {
-        console.log('o', o);
         return {
           key: o.id,
           value: `${o.id}: ${o.lastName}, ${o.firstName} - ${o.role}`
@@ -109,7 +109,9 @@ export class Patient extends Component {
       };
 
       //build field list
-      this.setState({fields: this.state.fields.push(primary)})
+      let fields = [...this.state.fields];
+          fields.push(primary);
+      this.setState({fields});
 
     });
   }
@@ -129,7 +131,7 @@ export class Patient extends Component {
     // if person data has not been loaded, or does not exist. fetch it.
     if(props.id !== this.state.data.id) {
       this.setState({data: {id: props.id}});
-      this.init(props.id);
+      this.fetch(props.id);
     }
   }
 
@@ -155,7 +157,7 @@ export class Patient extends Component {
     return (
       <Form
         title="Patient Information"
-        fields={fields}
+        fields={this.state.fields}
         data={this.state.data}
         onSubmit={ this.onSubmit.bind(this) } />
     );

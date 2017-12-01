@@ -62,6 +62,21 @@ return function($router, $req = null, $db = null) {
     echo(json_encode($result));
 
   });
+
+  $router->get('/:id/profile', function($router, $params) use ($req, $db) {
+    $sql = "SELECT *
+            FROM person as p1, patient as p2
+            WHERE p1.id = p2.id
+            AND p2.id = " . $db->escape($params['id']);
+
+    $result = $db->query($sql);
+    if(empty($result)) {
+      http_response_code(404);
+      exit;
+    } else {
+      echo(json_encode($result[0]));
+    }
+  });
 };
 
 ?>

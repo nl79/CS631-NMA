@@ -18,6 +18,10 @@ let nav = [
       {
         to: '/new',
         label: 'Add Patient'
+      },
+      {
+        to: '/management',
+        label: 'In-patient Management'
       }
     ]
   },

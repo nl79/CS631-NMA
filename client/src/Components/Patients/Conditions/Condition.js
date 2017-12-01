@@ -97,7 +97,7 @@ export class Condition extends Component {
 
         <Form
 
-          className=''
+          className='form-inline'
           title=''
           fields={this.state.fields}
           onSubmit={this.onSubmit.bind(this)}/>
