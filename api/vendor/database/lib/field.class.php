@@ -330,13 +330,13 @@ class Field extends _database_base {
         $is_valid = 'is_numeric';
         break;
       case 'float':
-        $is_valid = 'is_float';
+        $is_valid = 'is_numeric';
         break;
       case 'double':
-        $is_valid = 'is_double';
+        $is_valid = 'is_numeric';
         break;
       case 'decimal':
-        $is_valid = 'is_double';
+        $is_valid = 'is_numeric';
         break;
 
 

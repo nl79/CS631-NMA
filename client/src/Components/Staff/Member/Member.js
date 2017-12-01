@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import { Person } from '../../Person';
-
-import { PersonService } from '../../../Services/HttpServices/PersonServices';
-
 import { Form } from '../../Common';
+
+import { State } from '../../../Utils';
+
+import { StaffService } from '../../../Services/HttpServices/StaffService';
+
+/*
+  id									int																        not null,
+  `role`							enum('nurse', 'surgeon', 'physician')			not null,
+  `type`							enum('salary', 'contract')								not null,
+  compensation				double(9,2)													      not null default 00.00,
+  start_date					date																      not null,
+  duration						double															      not null default 0.00,
+*/
 
 const fields = [
   {
@@ -13,103 +22,131 @@ const fields = [
     placeholder: 'id'
   },
   {
-    name:"firstName",
-    label:"First Name",
-    placeholder: 'First Name..'
+    name:"snum",
+    label:"Staff Number",
+    placeholder: 'Staff Number...',
+    disabled: true
   },
   {
     name:"type",
-    label:"Staff Type",
+    label:"Type",
+    value:"salary",
+    type:"select",
+    options:['salary', 'contract'],
+    default: 'salary',
+    placeholder: 'Staff Type...',
+    onChange: (e)=> {
+      console.log('ontypeChange',e);
+    }
+  },
+  {
+    name:"duration",
+    label:"Duration",
+    type:"number",
+    placeholder: 'Duration...',
+    maxlength: 6
+  },
+  {
+    name:"role",
+    label:"Role",
     value:"nurse",
     type:"select",
-    options:['physician', 'nurse', 'surgeon'],
-    default: 'nurse'
+    options:['nurse', 'surgeon', 'physician'],
+    default: 'nurse',
+    placeholder: 'Staff Role...'
+  },
+  {
+    name:"compensation",
+    label:"Compensation",
+    type:"number",
+    placeholder: '$0.00',
+    default: '0.00',
+    maxlength: 6
+  },
+  {
+    name:"start_date",
+    label:"Start Date",
+    type:"date",
+    placeholder: 'Start Date...'
   }
 ];
 
 export class Member extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.state = {
+      data: '',
+      error: ''
+    };
   }
 
-  componentWillReceiveProps(props) {
+  fetch(id) {
+    if(id) {
+      StaffService.get(id).then((res) => {
 
-    let id = props.id || props.routeParams.id;
-    if(!id) {
-      this.setState({id: null});
+        let data;
+        if(Array.isArray(res.data) && res.data.length){
+          data = res.data[0];
+        } else {
+          data = res.data;
+        }
+
+        this.setState({data: {...this.state.data, ...data}}, (o) => {
+          if(this.props.onLoad) {
+            this.props.onLoad(this.state.data);
+          }
+        });
+      });
     }
   }
 
   componentWillMount() {
-    // Check if an id was supplied
-    let id = this.props.id || this.props.routeParams.id;
 
-    if(id) {
-      StaffService.get(id).then((res) => {
-        this.setState({
-          ...res.data
-        });
-      })
+    this.fetch(this.props.id);
+
+  }
+
+  componentWillReceiveProps(props) {
+
+
+    if(!props.id){
+      this.setState((e) => {
+        return {data: {...State.reset(e.data)}}
+      });
+    }
+    // if person data has not been loaded, or does not exist. fetch it.
+    if(props.id !== this.state.data.id) {
+      this.setState({data: {id: props.id}});
+      this.fetch(props.id);
     }
   }
 
   onSubmit(fields) {
+    // Save the person object.
     StaffService.save(fields)
       .then((res) => {
-        this.setState({
-          ...res.data
-        });
+        if(res.data.id) {
+          this.setState({data: {...res.data}}, (o) => {
+            if(this.props.onSubmit) {
+              this.props.onSubmit(this.state.data);
+            }
+          });
+        }
       });
   }
 
-  onChange(fields) {
-    this.setState({
-      ...this.state,
-      ...fields
-    });
-  }
-
-  onPersonSubmit(fields) {
-
-    this.setState(
-      {
-        ...this.state,
-        id: fields.id
-      }
-    );
-  }
-
-  onPersonChange(fields) {
-    //console.log('onPersonChange', fields);
-
-  }
-
-  renderStaffData(id) {
-    if(!id) { return null }
-
-    return (
-      <div>
-        <Form title="Staff Information"
-              fields={fields}
-              data={this.state}
-              onChange={ this.onChange.bind(this) }
-              onSubmit={ this.onSubmit.bind(this) } />
-      </div>
-    )
-  }
-
   render() {
-    return (
-      <div>
-        <h2>Staff Information</h2>
-        <Person
-          key={this.state.id}
-          id={this.state.id}
-          onSubmit={ this.onPersonSubmit.bind(this) } />
+    if(!this.state.data.id) {
+      return null;
+    }
 
-        { this.renderStaffData(this.state.id) }
-      </div>
+    return (
+      <Form
+        title="Staff Member Information"
+        fields={fields}
+        data={this.state.data}
+        onSubmit={ this.onSubmit.bind(this) } />
     );
   }
 }

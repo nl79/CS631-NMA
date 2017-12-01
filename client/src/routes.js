@@ -27,8 +27,8 @@ export default (
     <Route path='/staff'>
       <IndexRoute component={Staff.Dashboard} />
       <Route path='/staff/list' component={Staff.List} />
-      <Route path='/staff/new' component={Staff.Member} />
-      <Route path='/staff/:id/view' component={Staff.Member} />
+      <Route path='/staff/new' component={Staff.Member.View} />
+      <Route path='/staff/:id/view' component={Staff.Member.View} />
     </Route>
     <Route path='/medication'>
       <IndexRoute component={Medication.Dashboard} />
@@ -41,6 +41,12 @@ export default (
       <Route path='/facilities/list' component={Facilities.List} />
       <Route path='/facilities/room/new' component={Facilities.Room} />
       <Route path='/facilities/:id/view' component={Facilities.Room} />
+    </Route>
+    <Route path='/scheduling'>
+      <IndexRoute component={Facilities.Dashboard} />
+      <Route path='/scheduling/list' component={Facilities.List} />
+      <Route path='/scheduling/room/new' component={Facilities.Room} />
+      <Route path='/scheduling/:id/view' component={Facilities.Room} />
     </Route>
   </Route>
 );

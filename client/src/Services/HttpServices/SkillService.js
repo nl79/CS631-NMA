@@ -1,9 +1,9 @@
 
 import axios from "axios";
 
-let prefix = '/api/staff';
+let prefix = '/api/skills';
 
-export const PatientService = {
+export const ConditionService = {
 
     save(params) {
       let url = `${prefix}`;

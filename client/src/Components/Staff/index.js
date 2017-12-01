@@ -1,3 +1,3 @@
 export { Dashboard } from './Dashboard';
 export { List } from './List';
-export { Member } from './Member';
+export * as Member from './Member';

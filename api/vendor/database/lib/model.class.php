@@ -250,6 +250,24 @@ class Model extends row {
     return $this->where($field, 'like', $q, $params, $raw);
   }
 
+  public function search($fields) {
+    if(is_null($fields) || empty($fileds)) {
+      return [];
+    }
+
+    $where = '';
+
+    foreach($fields as $field => $value) {
+      if(!$this->isField($field)) {
+        continue;
+      }
+
+
+
+
+    }
+  }
+
   /*
    * @method all() - returns an array with all records in the table.
    * @return Array - returns array..

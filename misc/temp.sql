@@ -1,233 +1,238 @@
-DROP  DATABASE IF EXISTS nma;
+DROP DATABASE IF EXISTS nma;
 CREATE DATABASE nma;
 USE nma;
 
-create table person (
-	id							int									not null auto_increment,
-    ssn						int									not null,
-    firstName				varchar(25)						not null,
-    lastName				varchar(25)						not null,
-    gender					enum('n/a', 'm','f')			not null,
-    dob						date									not null,
-    phnumb				char(11)							not null,
-    
-	primary key(id)
+CREATE TABLE person (
+  id        INT                    NOT NULL AUTO_INCREMENT,
+  ssn       INT                    NOT NULL,
+  firstName VARCHAR(25)            NOT NULL,
+  lastName  VARCHAR(25)            NOT NULL,
+  gender    ENUM ('n/a', 'm', 'f') NOT NULL,
+  dob       DATE                   NOT NULL,
+  phnumb    CHAR(11)               NOT NULL,
+
+  PRIMARY KEY (id)
 );
 
-create table address (
-	id							int						not null auto_increment,
-    address				varchar(50)			not null,
-    address2				varchar(50),
-    city						varchar(50)			not null,
-    state					char(3)					not null,
-    zipcode				char(10)				not null,
-    
-    primary key(id)
+CREATE TABLE address (
+  id       INT         NOT NULL AUTO_INCREMENT,
+  address  VARCHAR(50) NOT NULL,
+  address2 VARCHAR(50),
+  city     VARCHAR(50) NOT NULL,
+  state    CHAR(3)     NOT NULL,
+  zipcode  CHAR(10)    NOT NULL,
+
+  PRIMARY KEY (id)
 );
 
-create table person_address (
-	person					int		not null,
-    address				int		not null,
-    
-    primary key(person, address),
-    foreign key(person) references person(id),
-    foreign key(address) references address(id)
+CREATE TABLE person_address (
+  person  INT NOT NULL,
+  address INT NOT NULL,
+
+  PRIMARY KEY (person, address),
+  FOREIGN KEY (person) REFERENCES person (id),
+  FOREIGN KEY (address) REFERENCES address (id)
 );
 
 -- Staff Section 
 
-create table staff_type(
-	id							int						not null auto_increment,
-    `name`					char(15)				not null,
-    primary key(id)
+CREATE TABLE staff_type (
+  id     INT      NOT NULL AUTO_INCREMENT,
+  `name` CHAR(15) NOT NULL,
+  PRIMARY KEY (id)
 );
 
-create table staff (
-	id					int			not null,
-    `type`			int			not null,
-    
-    foreign key(id) references person(id),
-    foreign key(`type`) references staff_type(id)
+CREATE TABLE staff (
+  id           INT                                                    NOT NULL,
+  snum         INT                                                    NOT NULL  AUTO_INCREMENT,
+  `role`       ENUM ('nurse', 'surgeon', 'physician', 'cardiologist') NOT NULL,
+  `type`       ENUM ('salary', 'contract')                            NOT NULL,
+  compensation DOUBLE(9, 2)                                           NOT NULL  DEFAULT 0.00,
+  start_date   DATE                                                   NOT NULL,
+  duration     DOUBLE                                                 NOT NULL  DEFAULT 0.00,
+  `status`     ENUM ('active', 'inactive')                            NOT NULL  DEFAULT 'active',
+
+  PRIMARY KEY (snum),
+  FOREIGN KEY (id) REFERENCES person (id)
+  -- foreign key(`type`) references staff_type(id)
 );
 
-create table salary (
-	id							int						not null,
-    amount				double(8,2)			not null,
-    
-    foreign key(id)	references staff(id)
+CREATE TABLE salary (
+  id     INT          NOT NULL,
+  amount DOUBLE(8, 2) NOT NULL,
+
+  FOREIGN KEY (id) REFERENCES staff (id)
 );
 
-create table contract (
-	id							int						not null,
-    rate						double(8,2)			not null,
-    duration				int						not null,
-    
-    
-   foreign key(id)	references staff(id)
+CREATE TABLE contract (
+  id       INT          NOT NULL,
+  rate     DOUBLE(8, 2) NOT NULL,
+  duration INT          NOT NULL,
+
+
+  FOREIGN KEY (id) REFERENCES staff (id)
 );
 
-create table shift(
-	id							int						not null,
-    `code`					char(5)					not null,
-    
-    primary key(id)
+CREATE TABLE shift (
+  id     INT     NOT NULL,
+  `code` CHAR(5) NOT NULL,
+
+  PRIMARY KEY (id)
 );
 
-create table staff_shift(
-	staff				int				not null,
-    shift				int				not null,
-    
-    foreign key(staff) references staff(id),
-    foreign key(shift)  references shift(id)
-);
+CREATE TABLE staff_shift (
+  staff INT NOT NULL,
+  shift INT NOT NULL,
 
-
-create table skill (
-	id							int							not null,
-    `name`					char(15)					not null,
-    
-    primary key(id)
-);
-
-create table staff_skill (
-	staff				int				not null,
-    skill				int				not null,
-    
-    foreign key(staff) references staff(id),
-    foreign key(skill)  references skill(id)
+  FOREIGN KEY (staff) REFERENCES staff (id),
+  FOREIGN KEY (shift) REFERENCES shift (id)
 );
 
 
+CREATE TABLE skill (
+  id     INT      NOT NULL,
+  `name` CHAR(15) NOT NULL,
+
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE staff_skill (
+  staff INT NOT NULL,
+  skill INT NOT NULL,
+
+  FOREIGN KEY (staff) REFERENCES staff (id),
+  FOREIGN KEY (skill) REFERENCES skill (id)
+);
 
 -- Patient Section
-create table patient (
-	id									int					not null,
-	pnum							int					not null											auto_increment,
-    blood_type					enum('o+', 'o-', 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-')			not null,
-    admit_date					date					not null,
-    cholesterol					char(10)			not null,
-    blood_sugar				int(4)				not null,
-    
-    
-    primary key (pnum),
-    foreign key(id) references person(id)
+CREATE TABLE patient (
+  id          INT                                                     NOT NULL,
+  pnum        INT                                                     NOT NULL                      AUTO_INCREMENT,
+  blood_type  ENUM ('o+', 'o-', 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-') NOT NULL,
+  admit_date  DATE                                                    NOT NULL,
+  cholesterol CHAR(10)                                                NOT NULL,
+  blood_sugar INT(4)                                                  NOT NULL,
+  `primary`   INT                                                     NULL,
+
+  PRIMARY KEY (pnum),
+  FOREIGN KEY (id) REFERENCES person (id),
+  FOREIGN KEY (`primary`) REFERENCES staff (id)
 );
 
-create table appointment_type(
-	id									int						not null		auto_increment,
-    `name`							varchar(50)			not null,
-    description					text						not null,
-    
-    primary key(id)
+CREATE TABLE appointment_type (
+  id          INT         NOT NULL    AUTO_INCREMENT,
+  `name`      VARCHAR(50) NOT NULL,
+  description TEXT        NOT NULL,
+
+  PRIMARY KEY (id)
 );
 
-create table appointment_type_skill (
-	`type`			int			not null,
-    skill				int			not null,
-    
-    foreign key(`type`) references appointment_type(id),
-    foreign key(skill) references skill(id)
+CREATE TABLE appointment_type_skill (
+  `type` INT NOT NULL,
+  skill  INT NOT NULL,
+
+  FOREIGN KEY (`type`) REFERENCES appointment_type (id),
+  FOREIGN KEY (skill) REFERENCES skill (id)
 );
 
-create table appointment(
-	id									int						not null		auto_increment,
-    `type`							int						not null,
-    
-    primary key(id),
-    foreign key(`type`)	references appointment_type(id)
+CREATE TABLE appointment (
+  id     INT NOT NULL    AUTO_INCREMENT,
+  `type` INT NOT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (`type`) REFERENCES appointment_type (id)
 );
 
-create table surgery_type (
-	id									int						not null	auto_increment,
-    `name`							varchar(50)			not null,
-    description					text						null,
-    category						varchar(25)			not null,
-    
-    primary key(id)
+CREATE TABLE surgery_type (
+  id          INT         NOT NULL  AUTO_INCREMENT,
+  `name`      VARCHAR(50) NOT NULL,
+  description TEXT        NULL,
+  category    VARCHAR(25) NOT NULL,
+
+  PRIMARY KEY (id)
 );
 
-create table surgery (
-	id									int						not null	auto_increment,
-    `type`							int						not null,
-    
-    primary key(id),
-    foreign key(`type`) references surgery_type(id)
+CREATE TABLE surgery (
+  id     INT NOT NULL  AUTO_INCREMENT,
+  `type` INT NOT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (`type`) REFERENCES surgery_type (id)
 );
 
-create table patient_appointment(
-	appt								int						not null,
-    patient							int						not null,
-    
-    foreign key(appt)	references appointment(id),
-    foreign key(patient) references patient(id)
+CREATE TABLE patient_appointment (
+  appt    INT NOT NULL,
+  patient INT NOT NULL,
+
+  FOREIGN KEY (appt) REFERENCES appointment (id),
+  FOREIGN KEY (patient) REFERENCES patient (id)
 );
 
-create table staff_appointment(
-	appt								int						not null,
-    staff								int						not null,
-    
-    foreign key(appt)	references appointment(id),
-    foreign key(staff) references staff(id)
+CREATE TABLE staff_appointment (
+  appt  INT NOT NULL,
+  staff INT NOT NULL,
+
+  FOREIGN KEY (appt) REFERENCES appointment (id),
+  FOREIGN KEY (staff) REFERENCES staff (id)
 );
 
-create table history(
-	id									int						not null	auto_increment,
-    patient							int						not null,
-    appt								int						null,
-    
-    primary key(id),
-    foreign key(patient) references patient(id),
-    foreign key(appt) references appointment(id)
+CREATE TABLE history (
+  id      INT NOT NULL  AUTO_INCREMENT,
+  patient INT NOT NULL,
+  appt    INT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (patient) REFERENCES patient (id),
+  FOREIGN KEY (appt) REFERENCES appointment (id)
 );
 
 
-create table medication (
-	`code`							int						not null		auto_increment,
-    cost								decimal(9,2)		not null,
-    qty								int						not null,
-    backordered				int						not null,
-    
-    primary key(`code`)
+CREATE TABLE medication (
+  `code`      INT           NOT NULL    AUTO_INCREMENT,
+  cost        DECIMAL(9, 2) NOT NULL,
+  qty         INT           NOT NULL,
+  backordered INT           NOT NULL,
+
+  PRIMARY KEY (`code`)
 );
-create table condition_type (
-	id									int						not null	auto_increment,
-    `name`							varchar(10)			not null,
-    
-    primary key(id)
+CREATE TABLE condition_type (
+  id     INT         NOT NULL  AUTO_INCREMENT,
+  `name` VARCHAR(10) NOT NULL,
+
+  PRIMARY KEY (id)
 );
 
-create table `condition` (
-	id									int						not null	auto_increment,
-    `name`							varchar(50)			not null,
-    description					text						not null,
-    `type`							int 						not null,
-    
-	primary key(id),
-    foreign key(`type`) references condition_type(id)
+CREATE TABLE `condition` (
+  id          INT         NOT NULL  AUTO_INCREMENT,
+  `name`      VARCHAR(50) NOT NULL,
+  description TEXT        NOT NULL,
+  `type`      INT         NOT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (`type`) REFERENCES condition_type (id)
 );
 
-create table patient_condition(
-	patient							int						not null,
-    `condition`					int						not null,
-    
-    foreign key(patient)	references patient(id),
-    foreign key(`condition`) references `condition`(id)
+CREATE TABLE patient_condition (
+  patient     INT NOT NULL,
+  `condition` INT NOT NULL,
+
+  FOREIGN KEY (patient) REFERENCES patient (id),
+  FOREIGN KEY (`condition`) REFERENCES `condition` (id)
 );
 
-create table prescription (
-	medication					int						not null,
-    patient							int						not null,
-    `condition`					int						not null,
-    staff								int						not null,
-    
-    foreign key(medication) references medication(`code`),
-    foreign key(patient) references patient(id),
-    foreign key(`condition`) references `condition`(id),
-    foreign key(staff) references staff(id)
-);
+CREATE TABLE prescription (
+  medication  INT NOT NULL,
+  patient     INT NOT NULL,
+  `condition` INT NOT NULL,
+  staff       INT NOT NULL,
 
+  FOREIGN KEY (medication) REFERENCES medication (`code`),
+  FOREIGN KEY (patient) REFERENCES patient (id),
+  FOREIGN KEY (`condition`) REFERENCES `condition` (id),
+  FOREIGN KEY (staff) REFERENCES staff (id)
+);
 
 -- Default Data
-insert into condition_type(`name`)
-values ('allergy'), ('disease'),('illness');
+INSERT INTO condition_type (`name`)
+VALUES ('allergy'), ('disease'), ('illness');
 

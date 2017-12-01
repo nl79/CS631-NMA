@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Person } from '../../Person';
-import { Patient } from './Patient';
+import { Member } from './Member';
 import { Form } from '../../Common';
-
-import { Conditions } from '../Conditions';
 
 export class View extends Component {
   constructor(props) {
@@ -40,13 +38,8 @@ export class View extends Component {
     );
   }
 
-  onPatientSubmit(fields) {
-    this.setState(
-      {
-        ...this.state,
-        pnum: fields.pnum
-      }
-    );
+  onMemberSubmit(fields) {
+    console.log('onMemberSubmit', fields);
   }
 
   onConditionSubmit(fields) {
@@ -56,22 +49,15 @@ export class View extends Component {
   render() {
     return (
       <div>
-        <h2>Patient Information</h2>
+        <h2>Staff Information</h2>
         <Person
           id={this.state.id}
           onSubmit={ this.onPersonSubmit.bind(this) } />
 
-        <Patient
+        <Member
           id={this.state.id}
-          onSubmit={ this.onPatientSubmit.bind(this) }
-          onLoad={ this.onPatientSubmit.bind(this) } />
-
-        {
-          this.state.pnum ?
-          <Conditions
-            id={this.state.id}
-            onSubmit={ this.onConditionSubmit.bind(this) } /> : null
-        }
+          onSubmit={ this.onMemberSubmit.bind(this) }
+          onLoad={ this.onMemberSubmit.bind(this) } />
 
       </div>
     )

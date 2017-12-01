@@ -5,6 +5,7 @@ import { Form } from '../../Common';
 import { State } from '../../../Utils';
 
 import { PatientService } from '../../../Services/HttpServices/PatientService';
+import { StaffService } from '../../../Services/HttpServices/StaffService';
 
 const fields = [
   //{ id:"name", label:"Client Name" },
@@ -57,11 +58,14 @@ export class Patient extends Component {
 
     this.state = {
       data: '',
-      error: ''
+      error: '',
+      fields: fields
     };
   }
 
-  fetch(id) {
+  init(id) {
+    this.buildFieldList();
+
     if(id) {
       PatientService.get(id).then((res) => {
 
@@ -81,8 +85,37 @@ export class Patient extends Component {
     }
   }
 
+  buildFieldList() {
+    StaffService.inRole({role: ['surgeon', 'physician']}).then((res) => {
+      console.log('StaffService.inRole', res);
+
+      let opts = Array.isArray(res.data) ? res.data.map((o) => {
+        console.log('o', o);
+        return {
+          key: o.id,
+          value: `${o.id}: ${o.lastName}, ${o.firstName} - ${o.role}`
+        };
+
+      }) : [];
+
+      let primary = {
+        name:"primary",
+        label:"Primary Physician",
+        value:opts.length && opts[0].key || '' ,
+        type:"select",
+        options: opts,
+        default: opts.length && opts[0].key || '',
+        placeholder: 'Primary Physician...'
+      };
+
+      //build field list
+      this.setState({fields: this.state.fields.push(primary)})
+
+    });
+  }
+
   componentWillMount() {
-    this.fetch(this.props.id);
+    this.init(this.props.id);
   }
 
   componentWillReceiveProps(props) {
@@ -96,7 +129,7 @@ export class Patient extends Component {
     // if person data has not been loaded, or does not exist. fetch it.
     if(props.id !== this.state.data.id) {
       this.setState({data: {id: props.id}});
-      this.fetch(props.id);
+      this.init(props.id);
     }
   }
 

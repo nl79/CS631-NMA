@@ -36,20 +36,6 @@ let nav = [
     ]
   },
   {
-    to: '/medication',
-    label: 'Medication Management',
-    children: [
-      {
-        to: '/list',
-        label: 'Medication List'
-      },
-      {
-        to: '/new',
-        label: 'Add Medication'
-      }
-    ]
-  },
-  {
     to: '/facilities',
     label: 'Facilities Management',
     children: [
@@ -60,6 +46,34 @@ let nav = [
       {
         to: '/room/new',
         label: 'Add Room'
+      }
+    ]
+  },
+  {
+    to: '/scheduling',
+    label: 'Scheduling Management',
+    children: [
+      {
+        to: '/list',
+        label: 'Schedule'
+      },
+      {
+        to: '/room/new',
+        label: 'Add Appointment'
+      }
+    ]
+  },
+  {
+    to: '/medication',
+    label: 'Medication Management',
+    children: [
+      {
+        to: '/list',
+        label: 'Medication List'
+      },
+      {
+        to: '/new',
+        label: 'Add Medication'
       }
     ]
   }

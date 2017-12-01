@@ -498,7 +498,7 @@ class Row
 
     $sql = '';
 
-    $sql .= "UPDATE " . $this->_tableName . " SET ";
+    $sql .= "UPDATE `" . $this->_tableName . "` SET ";
     foreach($this->_fields as $field) {
 
       //if the fieldtype is timestamp, skip it.
@@ -514,7 +514,7 @@ class Row
       $name = $field->getName();
 
       //pass the value to addslahes to escape the ', ", /, and null.
-      $sql .= $name . '="' . $this->_database->escape_string(addslashes($value)) . '",';
+      $sql .= "`$name`" . '="' . $this->_database->escape_string(addslashes($value)) . '",';
     }
     //remove the trailing comma
     $sql = rtrim($sql, ',');
