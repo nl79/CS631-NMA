@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
 import { browserHistory } from 'react-router';
-import { PatientService } from '../../../Services/HttpServices/PatientService';
+import { PatientService } from '../../../../Services/HttpServices/PatientService';
 
-import { Profile } from '../Patient';
-
-export class Assignments extends Component {
+export class Facilities extends Component {
   constructor(props) {
     super(props);
   }
@@ -21,7 +19,8 @@ export class Assignments extends Component {
   render() {
     return (
       <div>
-        <Profile id={this.props.id} />
+        <h4> Facilities Assignments </h4>
+
       </div>
     );
   }

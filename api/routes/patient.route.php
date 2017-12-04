@@ -63,6 +63,22 @@ return function($router, $req = null, $db = null) {
 
   });
 
+  $router->post('/:id/staff', function($router, $params) use ($req, $db) {
+    $sql = "";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+  $router->get('/:id/staff', function($router, $params) use ($req, $db) {
+    $sql = "";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
   $router->get('/:id/profile', function($router, $params) use ($req, $db) {
     $sql = "SELECT *
             FROM person as p1, patient as p2

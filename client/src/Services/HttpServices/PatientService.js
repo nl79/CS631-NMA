@@ -35,5 +35,15 @@ export const PatientService = {
     conditions(id) {
       let url = `${prefix}/${id}/conditions`;
       return axios.get(url);
+    },
+
+    staff(id) {
+      let url = `${prefix}/${id}/staff`;
+      return axios.get(url);
+    },
+
+    facilities(id) {
+      let url = `${prefix}/${id}/facilities`;
+      return axios.get(url);
     }
 }
