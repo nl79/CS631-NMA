@@ -4,6 +4,8 @@ import { PatientService } from '../../../Services/HttpServices/PatientService';
 
 import { browserHistory } from 'react-router';
 
+import { Table } from '../../Common/Table';
+
 
 export class List extends Component {
   constructor(props) {
@@ -57,29 +59,10 @@ export class List extends Component {
           </div>
         </div>
 
-        <table className='table'>
-          <thead>
-          </thead>
-          <tbody className='table-striped'>
-            {
-              this.state.list.map((o, i) => {
-                let keys = Object.keys(o);
-
-                return (
-                  <tr key={i} onClick={ (e) => { this.onRowClick(o) }}>
-                    {
-                      keys.map((k, y) => {
-                        return (
-                          <td>{o[k]}</td>
-                        )
-                      })
-                    }
-                  </tr>
-                )
-              })
-            }
-          </tbody>
-        </table>
+        <Table
+          data={this.state.list}
+          fields={this.props.fields}
+          onSelect={this.onRowClick.bind(this)}/>
 
       </div>
     );

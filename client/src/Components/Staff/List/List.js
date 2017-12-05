@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import {StaffService} from "../../../Services/HttpServices/StaffService";
 import {browserHistory} from "react-router";
 
+import { Table } from '../../Common/Table';
+
 export class List extends Component {
   constructor(props) {
     super(props);
@@ -14,27 +16,54 @@ export class List extends Component {
   }
 
   componentWillMount() {
-    StaffService.list().then(res => {
+    console.log('Staff$List#omponentWillMount#props', this.props);
+    if(this.props.autoFetch !== false) {
+      this.fetch();
+    }
+
+  }
+
+  fetch(filter) {
+
+    let result;
+
+    // Check if a custom fetch method is provided/
+    if(this.props.fetch) {
+      result = this.props.fetch();
+    } else {
+      result = StaffService.list();
+    }
+
+    result.then(res => {
       this.setState({
         ...this.state,
         list: res.data || []
       });
-    })
-
+    });
   }
+
   submit() {
     console.log('submit', this.state.query);
 
   }
 
-  onRowClick(o) {
-    browserHistory.push(`/staff/${o.id}/view`);
+  componentWillReceiveProps(props) {
+    console.log('Staff$ListcomponentWillReceiveProps#props', props);
+    this.fetch();
   }
+
+  onRowClick(o) {
+    if(this.props.onSelect) {
+      this.props.onSelect(o);
+    } else {
+      browserHistory.push(`/staff/${o.id}/view`);
+    }
+  }
+
   render() {
-    console.log('this', this);
     return (
       <div>
-        Patient List
+        <h5>Staff List</h5>
         <div className='row'>
           <div className="col-lg-6">
             <div className="input-group">
@@ -50,31 +79,10 @@ export class List extends Component {
           </div>
         </div>
 
-        <table className='table'>
-          <thead>
-          </thead>
-          <tbody className='table-striped'>
-          {
-            this.state.list.map((o, i) => {
-              let keys = Object.keys(o);
-
-              return (
-                <tr key={i} onClick={(e) => {
-                  this.onRowClick(o)
-                }}>
-                  {
-                    keys.map((k, y) => {
-                      return (
-                        <td>{o[k]}</td>
-                      )
-                    })
-                  }
-                </tr>
-              )
-            })
-          }
-          </tbody>
-        </table>
+        <Table
+          data={this.state.list}
+          fields={this.props.fields}
+          onSelect={this.onRowClick.bind(this)}/>
 
       </div>
     );

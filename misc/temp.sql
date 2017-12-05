@@ -119,6 +119,14 @@ CREATE TABLE patient (
   FOREIGN KEY (`primary`) REFERENCES staff (id)
 );
 
+CREATE TABLE patient_staff (
+  patient     INT NOT NULL,
+  staff 		INT NOT NULL,
+
+  FOREIGN KEY (patient) REFERENCES patient (id),
+  FOREIGN KEY (staff) REFERENCES staff (id)
+);
+
 CREATE TABLE appointment_type (
   id          INT         NOT NULL    AUTO_INCREMENT,
   `name`      VARCHAR(50) NOT NULL,

@@ -42,6 +42,22 @@ export const PatientService = {
       return axios.get(url);
     },
 
+    assignStaff(patient, staff) {
+      let url = `${prefix}/${patient}/staff`;
+      return axios.post(url, {staff});
+    },
+
+    unassignStaff(patient, staff) {
+      let url = `${prefix}/${patient}/staff`;
+      return axios.delete(url, {params: {staff}});
+    },
+
+
+    unassignedStaff(patient) {
+      let url = `${prefix}/${patient}/staff/unassigned`;
+      return axios.get(url);
+    },
+
     facilities(id) {
       let url = `${prefix}/${id}/facilities`;
       return axios.get(url);

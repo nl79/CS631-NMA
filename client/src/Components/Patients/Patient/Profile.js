@@ -36,11 +36,11 @@ export class Profile extends Component {
     return (
       <div className="row">
         {
-          fields.map((o) => {
+          fields.map((o, i) => {
             return (
-              <div className="col-md-3">
+              <div key={i} className="col-md-3">
                 <div className="form-group">
-                  <label for="exampleInputEmail1">{o.label}</label>
+                  <label>{o.label}</label>
                   <div>
                     <span className="form-control-static"
                           id="exampleInputEmail1">{o.value}</span>

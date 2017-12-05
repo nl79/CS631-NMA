@@ -25,7 +25,6 @@ return function($router, $req = null, $db = null) {
     echo(json_encode($result));
   });
 
-
   $router->get('/inRole', function($router, $params) use ($req, $db) {
 
     $sql = "SELECT p.`firstName`, p.`lastName`, s.id, s.`role`

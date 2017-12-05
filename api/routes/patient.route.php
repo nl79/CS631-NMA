@@ -64,7 +64,26 @@ return function($router, $req = null, $db = null) {
   });
 
   $router->post('/:id/staff', function($router, $params) use ($req, $db) {
-    $sql = "";
+
+    $ps = $db->model('patient_staff');
+    $ps->set($req->raw());
+    // Set the patient id from the route $params
+    $ps->set('patient', $params['id']);
+    if($ps->save()) {
+      echo(json_encode($ps->toArray()));
+    } else {
+      echo(json_encode($ps->getErrors()));
+    }
+
+  });
+
+
+  $router->delete('/:id/staff', function($router, $params) use ($req, $db) {
+
+    $sql = 'DELETE
+            FROM patient_staff
+            WHERE patient = ' . $db->escape($params['id']) .
+            ' AND staff = '  . $db->escape($req->get('staff'));
 
     $result = $db->query($sql);
     echo(json_encode($result));
@@ -72,7 +91,27 @@ return function($router, $req = null, $db = null) {
   });
 
   $router->get('/:id/staff', function($router, $params) use ($req, $db) {
-    $sql = "";
+
+    $sql = "SELECT s.id, p.`firstName`, p.`lastName`, s.`role`
+            FROM person as p, staff as s, patient_staff as ps
+            WHERE p.id = s.id
+            AND s.id = ps.staff
+            AND ps.patient = " . $db->escape($params['id']);
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+  $router->get('/:id/staff/unassigned', function($router, $params) use ($req, $db) {
+
+    $sql = "SELECT s.id, s.snum, p.`firstName`, p.`lastName`, s.`role`
+            FROM person as p, staff as s
+            WHERE p.id = s.id
+            AND s.id NOT IN
+              ( SELECT ps.staff
+                FROM patient_staff as ps
+                WHERE ps.patient = " . $db->escape($params['id']) . ")";
 
     $result = $db->query($sql);
     echo(json_encode($result));
