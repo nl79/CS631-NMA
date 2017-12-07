@@ -4,7 +4,7 @@ export class Dashboard extends Component {
   render() {
     return (
       <div>
-        Medication Dashboard
+        Facilities Dashboard
         {this.props.children}
       </div>
     );

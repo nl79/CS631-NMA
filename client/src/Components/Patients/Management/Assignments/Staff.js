@@ -55,6 +55,7 @@ export class Staff extends Component {
             <h5>Currently Assigned Staff</h5>
             <Table
               onSelect={this.removeStaff.bind(this)}
+              fields={['snum', 'firstName', 'lastName', 'role']}
               data={this.state.data}/>
 
           </div>

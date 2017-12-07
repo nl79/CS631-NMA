@@ -92,7 +92,7 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/:id/staff', function($router, $params) use ($req, $db) {
 
-    $sql = "SELECT s.id, p.`firstName`, p.`lastName`, s.`role`
+    $sql = "SELECT s.id, s.snum, p.`firstName`, p.`lastName`, s.`role`
             FROM person as p, staff as s, patient_staff as ps
             WHERE p.id = s.id
             AND s.id = ps.staff
