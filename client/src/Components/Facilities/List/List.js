@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { FacilitiesService } from '../../../Services/HttpServices/FacilitiesService';
 import { Table } from '../../Common/Table';
+import { browserHistory } from 'react-router';
 
 export class List extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ export class List extends Component {
     if(this.props.fetch) {
       result = this.props.fetch();
     } else {
-      result = FacilitiesService.list();
+      result = FacilitiesService.listRooms();
     }
 
     result.then(res => {
@@ -54,14 +55,14 @@ export class List extends Component {
     if(this.props.onSelect) {
       this.props.onSelect(o);
     } else {
-      browserHistory.push(`/facilities/${o.id}/view`);
+      browserHistory.push(`/facilities/room/${o.id}/view`);
     }
   }
 
   render() {
     return (
       <div>
-        <h5>Facilities List</h5>
+        <h5>Room List</h5>
         <div className='row'>
           <div className="col-lg-6">
             <div className="input-group">

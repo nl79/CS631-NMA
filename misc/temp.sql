@@ -119,6 +119,34 @@ CREATE TABLE patient (
   FOREIGN KEY (`primary`) REFERENCES staff (id)
 );
 
+-- FACILITIES SECTION
+CREATE TABLE room (
+  id          INT         NOT NULL    AUTO_INCREMENT,
+  `type`      ENUM ('office', 'surgery', 'recovery', 'emergency') NOT NULL,
+  `number`    INT         NULL NULL,
+  desription  char(255)   NULL,
+
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE bed (
+  id          INT         NOT NULL    AUTO_INCREMENT,
+  `number`    INT         NULL,
+  size        ENUM ('twin', 'twin xl', 'full', 'queen', 'king') NOT NULL,
+  rnum        INT         NOT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (rnum) REFERENCES room(id)
+);
+
+CREATE TABLE patient_bed (
+  patient     INT NOT NULL,
+  bed 		INT NOT NULL,
+
+  FOREIGN KEY (patient) REFERENCES patient (id),
+  FOREIGN KEY (bed) REFERENCES bed (id)
+);
+
 CREATE TABLE patient_staff (
   patient     INT NOT NULL,
   staff 		INT NOT NULL,

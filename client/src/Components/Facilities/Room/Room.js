@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Person } from '../../Person';
 import { Form } from '../../Common';
-
 import { State } from '../../../Utils';
 
 import { FacilitiesService } from '../../../Services/HttpServices/FacilitiesService';
@@ -10,14 +8,31 @@ const fields = [
   {
     name:"id",
     label:"id",
-    type:"hidden",
-    placeholder: 'id'
+    type:"number",
+    placeholder: 'id',
+    disabled: true
   },
   {
-    name:"pnum",
+    name:"number",
     label:"Room Number",
     placeholder: 'Room Number...',
-    disabled: true
+    type:"number",
+    maxlength: '4'
+  },
+  {
+    name:"desription",
+    label:"Room Desription",
+    placeholder: 'Room Desription...',
+    type:"text",
+    maxlength: 250
+  },
+  {
+    name:"type",
+    label:"Room Type",
+    value:"recovery",
+    type:"select",
+    options:['office', 'surgery', 'recovery', 'emergency'],
+    default: 'recovery'
   }
 ];
 
@@ -33,8 +48,7 @@ export class Room extends Component {
 
   fetch(id) {
     if(id) {
-      FacilitiesService.get(id).then((res) => {
-
+      FacilitiesService.getRoom(id).then((res) => {
         let data;
         if(Array.isArray(res.data) && res.data.length){
           data = res.data[0];
@@ -51,23 +65,21 @@ export class Room extends Component {
     }
   }
 
-  init(id) {
-    this.fetch(id);
-  }
-
   componentWillMount() {
-    this.init(this.props.id);
+    console.log('Room#componentWillMount', this);
+    this.fetch(this.props.id);
   }
 
   componentWillReceiveProps(props) {
 
+    console.log('Room#componentWillReceiveProps', props);
 
     if(!props.id){
       this.setState((e) => {
         return {data: {...State.reset(e.data)}}
       });
     }
-    // if person data has not been loaded, or does not exist. fetch it.
+
     if(props.id !== this.state.data.id) {
       this.setState({data: {id: props.id}});
       this.fetch(props.id);
@@ -76,7 +88,7 @@ export class Room extends Component {
 
   onSubmit(fields) {
     // Save the person object.
-    FacilitiesService.save(fields)
+    FacilitiesService.saveRoom(fields)
       .then((res) => {
         if(res.data.id) {
           this.setState({data: {...res.data}}, (o) => {
@@ -89,13 +101,9 @@ export class Room extends Component {
   }
 
   render() {
-    if(!this.state.data.id) {
-      return null;
-    }
-
     return (
       <Form
-        title="Patient Information"
+        title=""
         fields={fields}
         data={this.state.data}
         onSubmit={ this.onSubmit.bind(this) } />

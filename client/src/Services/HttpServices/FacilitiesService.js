@@ -5,21 +5,26 @@ let prefix = '/api/facilities';
 
 export const FacilitiesService = {
 
-    save(params) {
-      let url = `${prefix}`;
+    saveRoom(params) {
+      let url = `${prefix}/rooms`;
 
       return axios.post(url, params);
 
     },
 
-    get(id) {
-      let url = `${prefix}/${id}`;
+    getRoom(id) {
+      let url = `${prefix}/rooms/${id}`;
       return axios.get(url);
     },
 
-    list(params) {
-      let url = `${prefix}/list`;
+    listRooms(params) {
+      let url = `${prefix}/rooms`;
       return axios.get(url, params);
+    },
+
+    getBeds(id) {
+      let url = `${prefix}/rooms/${id}/beds`;
+      return axios.get(url);
     },
 
     types() {

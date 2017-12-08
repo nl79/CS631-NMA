@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
+
+import { ConditionService } from '../../../Services/HttpServices/ConditionService';
+
+
 import { Form } from '../../Common';
 
 const fields = [
-  //{ id:"name", label:"Client Name" },
   {
-    name:"name",
-    label:"Name",
-    placeholder: 'Name..'
+    name:"id",
+    label:"id",
+    type:"hidden",
+    placeholder: 'id'
   },
   {
-    name:"code",
-    label:"Product Code",
-    placeholder: 'Product Code...'
+    name:"rnum",
+    label:"Room Number",
+    placeholder: 'Room Number...',
+    type:"number",
+    disabled: true
   },
   {
-    name:"status",
-    label:"Status",
-    value:"active",
+    name:"number",
+    label:"Bed Number",
+    placeholder: 'Room Number...',
+    type:"number",
+    maxlength: '4'
+  },
+  {
+    name:"size",
+    label:"Bed Size",
+    value:"twin",
     type:"select",
-    options:['active', 'terminated'],
-    default: 'terminated'
+    options:['twin', 'twin xl', 'full', 'queen', 'king'],
+    default: 'twin'
   }
 ];
+
 
 export class Bed extends Component {
   constructor(props) {
@@ -29,26 +43,29 @@ export class Bed extends Component {
 
   }
 
-  onSubmit(fields) {
+  componentWillMount() {
+  }
+
+  onSubmit(params) {
     if(this.props.onSubmit) {
-      this.props.onSubmit(fields);
+      this.props.onSubmit(params);
     }
-  }
-
-  onChange(fields) {
-    console.log('onChange#fields', fields);
-  }
-
-  onReset() {
-
   }
 
   render() {
     return (
-      <Form title="Bed Information"
-            fields={fields}
-            onChange={ this.props.onChange }
-            onSubmit={ this.onSubmit.bind(this) }/>
+      <div>
+        <h6>
+          Add Bed
+        </h6>
+
+        <Form
+          className='form-inline'
+          title=''
+          fields={fields}
+          onSubmit={this.onSubmit.bind(this)}/>
+
+      </div>
     );
   }
 }

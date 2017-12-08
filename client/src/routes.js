@@ -41,8 +41,8 @@ export default (
     <Route path='/facilities'>
       <IndexRoute component={Facilities.Dashboard} />
       <Route path='/facilities/list' component={Facilities.List} />
-      <Route path='/facilities/room/new' component={Facilities.Room} />
-      <Route path='/facilities/:id/view' component={Facilities.Room} />
+      <Route path='/facilities/room/new' component={Facilities.Room.View} />
+      <Route path='/facilities/room/:id/view' component={Facilities.Room.View} />
     </Route>
     <Route path='/scheduling'>
       <IndexRoute component={Facilities.Dashboard} />
