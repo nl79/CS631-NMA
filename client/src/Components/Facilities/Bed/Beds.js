@@ -42,7 +42,7 @@ export class Beds extends Component {
       .then((res) => {
         //reload the conditions list.
         if(res.data.patient) {
-          return this.fetch(res.data.patient);
+          return this.fetch(this.props.id);
         }
       });
   }

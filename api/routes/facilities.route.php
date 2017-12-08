@@ -49,9 +49,13 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/rooms/:id/beds', function($router, $params) use ($req, $db) {
 
+    $bed = $db->model('bed')->where('rnum', $params['id']);
 
-    $result = $db->query($sql);
-    echo(json_encode($result));
+    if(!$bed->isEmpty()) {
+      echo(json_encode($bed->toArray()));
+    } else {
+      http_response_code(404);
+    }
 
   });
 
