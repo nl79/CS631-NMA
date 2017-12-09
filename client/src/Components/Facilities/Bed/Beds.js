@@ -33,15 +33,11 @@ export class Beds extends Component {
   }
 
   onBedSubmit(params) {
-    FacilitiesService.saveBed(params)
+
+    FacilitiesService.addBed(this.props.id, params)
       .then((res) => {
+        //reload the bed list.
         if(res.data.id) {
-          return FacilitiesService.addBed(this.props.id, res.data.id);
-        }
-      })
-      .then((res) => {
-        //reload the conditions list.
-        if(res.data.patient) {
           return this.fetch(this.props.id);
         }
       });
@@ -59,7 +55,8 @@ export class Beds extends Component {
     return (
       <div>
         <h4>Beds</h4>
-        <Bed onSubmit={this.onBedSubmit.bind(this)}/>
+        <Bed rnum={this.props.id}
+             onSubmit={this.onBedSubmit.bind(this)}/>
         <List list={this.state.data}/>
       </div>
     );

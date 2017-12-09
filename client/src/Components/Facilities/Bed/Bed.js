@@ -40,10 +40,10 @@ const fields = [
 export class Bed extends Component {
   constructor(props) {
     super(props);
-
   }
 
   componentWillMount() {
+    //console.log('Bed#componentWillMount', this);
   }
 
   onSubmit(params) {
@@ -62,6 +62,7 @@ export class Bed extends Component {
         <Form
           className='form-inline'
           title=''
+          data={{rnum: this.props.rnum}}
           fields={fields}
           onSubmit={this.onSubmit.bind(this)}/>
 
