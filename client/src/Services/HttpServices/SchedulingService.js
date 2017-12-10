@@ -68,9 +68,15 @@ export const SchedulingService = {
     return axios.get(url);
   },
 
+  appointmentsBy(type, id) {
+    console.log('reportsBy', type, id);
+    if(!type || !id) {
+      return Promise.resolve({data: []});
+    }
+    let url = `${prefix}/appointments/reports/${type}/${id}`;
 
-
-
+    return axios.get(url);
+  },
 
   saveShift(params) {
     let url = `${prefix}/shifts`;

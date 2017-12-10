@@ -59,6 +59,8 @@ export default (
       <Route path='/scheduling/appointments/:id/view' component={Scheduling.Appointments.View} />
       <Route path='/scheduling/appointments/patients/:patient/new' component={Scheduling.Appointments.View} />
 
+      <Route path='/scheduling/appointments/:type/report' component={Scheduling.Appointments.Report} />
+
     </Route>
   </Route>
 );

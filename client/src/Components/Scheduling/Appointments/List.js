@@ -15,14 +15,41 @@ export class List extends Component {
   }
 
   componentWillMount() {
+    /*
     SchedulingService.appointments().then(res => {
       this.setState({
         ...this.state,
         list: res.data || []
       });
     })
+    */
+    if(this.props.autoFetch !== false) {
+      this.fetch();
+    }
 
   }
+
+  fetch(filter) {
+
+    let result;
+
+    console.log('fetch', this);
+
+    // Check if a custom fetch method is provided/
+    if(this.props.fetch) {
+      result = this.props.fetch();
+    } else {
+      result = SchedulingService.appointments();
+    }
+
+    result.then(res => {
+      this.setState({
+        ...this.state,
+        list: res.data || []
+      });
+    });
+  }
+
   submit() {
 
     if(this.props.onSearch) {
@@ -33,11 +60,9 @@ export class List extends Component {
   }
 
   onRowClick(o) {
-
     if(this.props.onSelect) {
       this.props.onSelect(o);
     } else {
-      console.log('Appts#onRowClick',o)
       browserHistory.push(`/scheduling/appointments/${o.id}/view`);
     }
   }
@@ -45,17 +70,25 @@ export class List extends Component {
   render() {
     return (
       <div>
-        { this.props.title || 'Shifts List' }
-        <div className='row'>
-          <div className="col-lg-6">
-            <div className="input-group">
-              <input type="text" className="form-control" onChange={(e) => { this.setState({query: e.target.value}) } } value={ this.state.query } placeholder="Search for..."/>
-              <span className="input-group-btn">
-                <button className="btn btn-default" type="button" onClick={(e)=>{this.submit()}}>Go!</button>
+        { this.props.title || 'Appointment List' }
+
+        {this.props.search === true ?
+          (<div className='row'>
+            <div className="col-lg-6">
+              <div className="input-group">
+                <input type="text" className="form-control" onChange={(e) => {
+                  this.setState({query: e.target.value})
+                }} value={this.state.query} placeholder="Search for..."/>
+                <span className="input-group-btn">
+                <button className="btn btn-default" type="button" onClick={(e) => {
+                  this.submit()
+                }}>Go!</button>
               </span>
+              </div>
             </div>
-          </div>
-        </div>
+          </div>) : null
+
+        }
 
         <Table
           data={this.state.list}

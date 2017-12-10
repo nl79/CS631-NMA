@@ -58,16 +58,24 @@ let nav = [
     label: 'Schedule Management',
     children: [
       {
-        to: '/list',
-        label: 'Schedule'
-      },
-      {
         to: '/appointments',
         label: 'Appointments',
         children: [
           {
             to: '/new',
             label: 'New Appointment'
+          },
+          {
+            to: '/room/report',
+            label: 'By Room'
+          },
+          {
+            to: '/staff/report',
+            label: 'By Doctor'
+          },
+          {
+            to: '/patient/report',
+            label: 'By Patient'
           }
         ]
       },

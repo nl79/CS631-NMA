@@ -116,6 +116,15 @@ return function($router, $req = null, $db = null) {
   });
 
 
+  $router->get('/appointments/reports/:type/:id', function($router, $params) use ($req, $db) {
+
+
+
+    print_r($params);
+
+  });
+
+
 
   /* SHIFT ENDPOINTS */
 
