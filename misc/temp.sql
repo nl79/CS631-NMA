@@ -49,7 +49,7 @@ CREATE TABLE staff (
   `type`       ENUM ('salary', 'contract')                            NOT NULL,
   compensation DOUBLE(9, 2)                                           NOT NULL  DEFAULT 0.00,
   start_date   DATE                                                   NOT NULL,
-  duration     DOUBLE                                                 NOT NULL  DEFAULT 0.00,
+  duration     int                                                    NOT NULL  DEFAULT 0,
   `status`     ENUM ('active', 'inactive')                            NOT NULL  DEFAULT 'active',
 
   PRIMARY KEY (snum),
@@ -201,20 +201,20 @@ CREATE TABLE surgery (
   FOREIGN KEY (`type`) REFERENCES surgery_type (id)
 );
 
-CREATE TABLE patient_appointment (
-  appt    INT NOT NULL,
-  patient INT NOT NULL,
-
-  FOREIGN KEY (appt) REFERENCES appointment (id),
-  FOREIGN KEY (patient) REFERENCES patient (id)
-);
-
 CREATE TABLE staff_appointment (
   appt  INT NOT NULL,
   staff INT NOT NULL,
 
   FOREIGN KEY (appt) REFERENCES appointment (id),
   FOREIGN KEY (staff) REFERENCES staff (id)
+);
+
+CREATE TABLE appointment_room (
+  appt  INT NOT NULL,
+  room INT NOT NULL,
+
+  FOREIGN KEY (appt) REFERENCES appointment (id),
+  FOREIGN KEY (room) REFERENCES room (id)
 );
 
 CREATE TABLE history (

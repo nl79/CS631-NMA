@@ -4,8 +4,6 @@ import { State } from '../../../Utils';
 
 import { SchedulingService } from '../../../Services/HttpServices/SchedulingService';
 
-
-
 const fields = [
   {
     name:"id",

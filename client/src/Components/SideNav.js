@@ -83,6 +83,8 @@ let nav = [
       }
     ]
   },
+
+  /*
   {
     to: '/medication',
     label: 'Medication Management',
@@ -97,6 +99,7 @@ let nav = [
       }
     ]
   }
+  */
 ];
 
 export default class SideNav extends Component {

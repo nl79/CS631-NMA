@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import { Appointment } from "./Appointment";
 import { Profile } from '../../Patients/Patient/Profile';
+import { Staff } from './Staff';
+import { Facilities} from './Facilities';
+
 export class View extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +67,14 @@ export class View extends Component {
           patient={ this.state.patient || ''}
           onSubmit={ this.onAppointmentSubmit.bind(this) }
           onLoad={this.onAppointmentLoad.bind(this) } />
+        {
+          this.state.id ? (
+            <div>
+              <Staff id={this.state.id} />
+              <Facilities id={this.state.id} />
+            </div>
+          ) : null
+        }
       </div>
     )
   }

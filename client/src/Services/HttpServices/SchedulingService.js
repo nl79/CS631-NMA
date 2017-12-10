@@ -28,6 +28,50 @@ export const SchedulingService = {
     return axios.get(url);
   },
 
+  appointmentStaff(id) {
+    let url = `${prefix}/appointments/${id}/staff`;
+    return axios.get(url);
+  },
+
+  assingAptStaff(apt, staff) {
+    let url = `${prefix}/appointments/${apt}/staff/${staff}`;
+    return axios.post(url);
+  },
+
+  unassignAptStaff(apt, staff) {
+    let url = `${prefix}/appointments/${apt}/staff/${staff}`;
+    return axios.delete(url);
+  },
+
+  unassignedAptStaff(id) {
+    let url = `${prefix}/appointments/${id}/staff/unassigned`;
+    return axios.get(url);
+  },
+
+  appointmentRooms(id) {
+    let url = `${prefix}/appointments/${id}/rooms`;
+    return axios.get(url);
+  },
+
+  assingAptRoom(apt, room) {
+    let url = `${prefix}/appointments/${apt}/rooms/${room}`;
+    return axios.post(url);
+  },
+
+  unassignAptRoom(apt, room) {
+    let url = `${prefix}/appointments/${apt}/rooms/${room}`;
+    return axios.delete(url);
+  },
+
+  unassignedAptRooms(id) {
+    let url = `${prefix}/appointments/${id}/rooms/unassigned`;
+    return axios.get(url);
+  },
+
+
+
+
+
   saveShift(params) {
     let url = `${prefix}/shifts`;
 
