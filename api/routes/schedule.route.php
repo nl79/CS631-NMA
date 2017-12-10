@@ -3,6 +3,37 @@
 return function($router, $req = null, $db = null) {
   $router->mount('/api/scheduling');
 
+
+
+  $router->post('/appointments', function($router, $params) use ($req, $db) {
+
+    $model = $db->model('appointment');
+    $model->set($req->raw());
+    if($model->save()) {
+      echo(json_encode($model->toArray()));
+    } else {
+      echo(json_encode($model->getErrors()));
+    }
+  });
+
+  $router->get('/appointments/:id', function($router, $params) use ($req, $db) {
+
+    $model = $db->model('appointment')->load($params['id']);
+
+    if(!$model->isEmpty()) {
+      echo(json_encode($model->toArray()));
+    } else {
+      http_response_code(404);
+    }
+  });
+
+  $router->get('/appointments', function($router, $params) use ($req, $db) {
+
+    $model = $db->model('appointment')->all();
+    echo(json_encode($model->toArray()));
+  });
+
+
   $router->get('/shifts', function($router, $params) use ($req, $db) {
 
     $shift = $db->model('shift')->all();

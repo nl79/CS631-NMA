@@ -178,8 +178,10 @@ CREATE TABLE appointment (
   description TEXT NOT NULL,
   `date`      DATE NOT NULL,
   `time`      TIME NOT NULL,
+  patient     INT  NOT NULL,
 
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (patient) REFERENCES patient (id)
 );
 
 CREATE TABLE surgery_type (

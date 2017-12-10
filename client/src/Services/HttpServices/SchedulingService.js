@@ -10,6 +10,24 @@ export const SchedulingService = {
     return axios.get(url);
   },
 
+  saveAppointment(params) {
+    let url = `${prefix}/appointments`;
+
+    return axios.post(url, params);
+  },
+
+  appointment(id) {
+    let url = `${prefix}/appointments/${id}`;
+
+    return axios.get(url);
+  },
+
+  appointments() {
+    let url = `${prefix}/appointments`;
+
+    return axios.get(url);
+  },
+
   saveShift(params) {
     let url = `${prefix}/shifts`;
 

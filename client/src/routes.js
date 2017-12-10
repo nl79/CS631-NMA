@@ -53,13 +53,12 @@ export default (
       <Route path='/scheduling/shifts' component={Scheduling.Shifts.List} />
       <Route path='/scheduling/shifts/new' component={Scheduling.Shifts.View} />
       <Route path='/scheduling/shifts/:id/view' component={Scheduling.Shifts.View} />
-      <Route path='/scheduling/rooms' component={Facilities.Room}/>
-      <Route path='/scheduling/rooms/:id/view' component={Facilities.List} />
 
-      <Route path='/scheduling/appointments/:type' component={Facilities.List} />
+      <Route path='/scheduling/appointments' component={Scheduling.Appointments.List} />
+      <Route path='/scheduling/appointments/new' component={Scheduling.Appointments.Dashboard} />
+      <Route path='/scheduling/appointments/:id/view' component={Scheduling.Appointments.View} />
+      <Route path='/scheduling/appointments/patients/:patient/new' component={Scheduling.Appointments.View} />
 
-
-      <Route path='/scheduling/:id/view' component={Facilities.Room} />
     </Route>
   </Route>
 );
