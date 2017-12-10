@@ -12,8 +12,11 @@ import * as Staff from './Components/Staff';
 // Medication
 import * as Medication from './Components/Medication';
 
-// Medication
+// Facilities
 import * as Facilities from './Components/Facilities';
+
+// Scheduling
+import * as Scheduling from './Components/Scheduling';
 
 export default (
   <Route path='/' component={App}>
@@ -45,9 +48,17 @@ export default (
       <Route path='/facilities/room/:id/view' component={Facilities.Room.View} />
     </Route>
     <Route path='/scheduling'>
-      <IndexRoute component={Facilities.Dashboard} />
-      <Route path='/scheduling/list' component={Facilities.List} />
-      <Route path='/scheduling/room/new' component={Facilities.Room} />
+      <IndexRoute component={Scheduling.Dashboard} />
+      <Route path='/scheduling/list' component={Scheduling.Dashboard} />
+      <Route path='/scheduling/shifts' component={Scheduling.Shifts.List} />
+      <Route path='/scheduling/shifts/new' component={Scheduling.Shifts.View} />
+      <Route path='/scheduling/shifts/:id/view' component={Scheduling.Shifts.View} />
+      <Route path='/scheduling/rooms' component={Facilities.Room}/>
+      <Route path='/scheduling/rooms/:id/view' component={Facilities.List} />
+
+      <Route path='/scheduling/appointments/:type' component={Facilities.List} />
+
+
       <Route path='/scheduling/:id/view' component={Facilities.Room} />
     </Route>
   </Route>

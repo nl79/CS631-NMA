@@ -29,7 +29,7 @@ return function($router, $req = null, $db = null) {
     if(!$room->isEmpty()) {
       echo(json_encode($room->toArray()));
     } else {
-      header("Status: 404 Not Found");
+      http_response_code(404);
     }
 
   });
@@ -62,7 +62,7 @@ return function($router, $req = null, $db = null) {
   $router->post('/rooms/:id/beds', function($router, $params) use ($req, $db) {
 
     $bed = $db->model('bed')->set($req->raw());
-    
+
     if($bed->save()) {
       echo(json_encode($bed->toArray()));
     } else {
@@ -70,8 +70,6 @@ return function($router, $req = null, $db = null) {
     }
 
   });
-
-
 };
 
 ?>

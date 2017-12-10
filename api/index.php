@@ -17,6 +17,8 @@
   $staffRoutes = require_once('routes/staff.route.php');
   $conditionRoutes = require_once('routes/condition.route.php');
   $facilitiesRoutes = require_once('routes/facilities.route.php');
+  $scheduleRoutes = require_once('routes/schedule.route.php');
+
 
 
 // Register routes.
@@ -25,6 +27,7 @@
   $staffRoutes($router, $Request, $database);
   $conditionRoutes($router, $Request, $database);
   $facilitiesRoutes($router, $Request, $database);
+  $scheduleRoutes($router, $Request, $database);
 
 
 // Execute the route.

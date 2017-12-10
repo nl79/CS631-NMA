@@ -74,8 +74,9 @@ CREATE TABLE contract (
 );
 
 CREATE TABLE shift (
-  id     INT     NOT NULL,
-  `code` CHAR(5) NOT NULL,
+  id     INT                  NOT NULL  AUTO_INCREMENT,
+  `type` ENUM ('1', '2', '3') NOT NULL DEFAULT '1',
+  `date` DATE,
 
   PRIMARY KEY (id)
 );
@@ -121,35 +122,35 @@ CREATE TABLE patient (
 
 -- FACILITIES SECTION
 CREATE TABLE room (
-  id          INT         NOT NULL    AUTO_INCREMENT,
-  `type`      ENUM ('office', 'surgery', 'recovery', 'emergency') NOT NULL,
-  `number`    INT         NULL NULL,
-  desription  char(255)   NULL,
+  id         INT                                                 NOT NULL    AUTO_INCREMENT,
+  `type`     ENUM ('office', 'surgery', 'recovery', 'emergency') NOT NULL,
+  `number`   INT                                                 NULL NULL,
+  desription CHAR(255)                                           NULL,
 
   PRIMARY KEY (id)
 );
 
 CREATE TABLE bed (
-  id          INT         NOT NULL    AUTO_INCREMENT,
-  `number`    INT         NULL,
-  size        ENUM ('twin', 'twin xl', 'full', 'queen', 'king') NOT NULL,
-  rnum        INT         NOT NULL,
+  id       INT                                               NOT NULL    AUTO_INCREMENT,
+  `number` INT                                               NULL,
+  size     ENUM ('twin', 'twin xl', 'full', 'queen', 'king') NOT NULL,
+  rnum     INT                                               NOT NULL,
 
   PRIMARY KEY (id),
-  FOREIGN KEY (rnum) REFERENCES room(id)
+  FOREIGN KEY (rnum) REFERENCES room (id)
 );
 
 CREATE TABLE patient_bed (
-  patient     INT NOT NULL,
-  bed 		INT NOT NULL,
+  patient INT NOT NULL,
+  bed     INT NOT NULL,
 
   FOREIGN KEY (patient) REFERENCES patient (id),
   FOREIGN KEY (bed) REFERENCES bed (id)
 );
 
 CREATE TABLE patient_staff (
-  patient     INT NOT NULL,
-  staff 		INT NOT NULL,
+  patient INT NOT NULL,
+  staff   INT NOT NULL,
 
   FOREIGN KEY (patient) REFERENCES patient (id),
   FOREIGN KEY (staff) REFERENCES staff (id)

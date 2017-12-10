@@ -62,8 +62,14 @@ let nav = [
         label: 'Schedule'
       },
       {
-        to: '/room/new',
-        label: 'Add Appointment'
+        to: '/shifts',
+        label: 'Shifts',
+        children: [
+          {
+            to: '/new',
+            label: 'Schedule Shifts'
+          }
+        ]
       }
     ]
   },
@@ -97,12 +103,13 @@ export class Nav extends Component {
       <ul className={this.props.className}>
         {
           this.props.items.map((o, i) => {
+            let prefix = this.props.prefix ? this.props.prefix + o.to : o.to;
             return (
               <li key={i + o.to } role="presentation" className="active">
-                <Link to={ this.props.prefix ? this.props.prefix + o.to : o.to }>{ o.label }</Link>
+                <Link to={ prefix }>{ o.label }</Link>
 
                 {
-                  o.children && o.children.length &&  (<Nav prefix={ o.to} items={o.children} />)
+                  o.children && o.children.length ?  (<Nav prefix={ prefix } items={o.children} />) : null
                 }
               </li>
             );

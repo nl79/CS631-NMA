@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import { List } from '../../../Facilities';
-import { Table } from '../../../Common';
+import { browserHistory } from 'react-router';
+import { SchedulingService } from '../../../Services/HttpServices/SchedulingService';
 
-import { FacilitiesService } from '../../../../Services/HttpServices/FacilitiesService';
-import { PatientService } from '../../../../Services/HttpServices/PatientService';
+import { List } from '../../Staff';
+import { Table } from '../../Common';
 
-export class Facilities extends Component {
+export class Staff extends Component {
   constructor(props) {
     super(props);
 
@@ -17,7 +17,7 @@ export class Facilities extends Component {
   }
 
   fetch(id) {
-    return PatientService.beds(id).then((res) => {
+    return SchedulingService.shiftStaff(id).then((res) => {
       this.setState({...this.state, data: res.data});
     });
 
@@ -32,15 +32,15 @@ export class Facilities extends Component {
     //this.fetch(props.id);
   }
 
-  addBed(o) {
-    return PatientService.assignBed(this.props.id, o.id)
+  addStaff(o) {
+    return SchedulingService.assignStaff(this.props.id, o.id)
       .then((res) => {
         return this.fetch(this.props.id);
       });
   }
 
-  removeBed(o) {
-    return PatientService.unassignBed(this.props.id, o.id)
+  removeStaff(o) {
+    return SchedulingService.unassignStaff(this.props.id, o.id)
       .then((res) => {
         return this.fetch(this.props.id);
       });
@@ -49,22 +49,22 @@ export class Facilities extends Component {
   render() {
     return (
       <div>
-        <h4> Facilities Assignments </h4>
+        <h4> Staff Assignments </h4>
         <div className='row'>
           <div className='col-md-6'>
             <h5>Currently Assigned Staff</h5>
             <Table
-              onSelect={this.removeBed.bind(this)}
-              fields={['id', 'number', 'rnum', 'size']}
-              data={this.state.data || []} />
+              onSelect={this.removeStaff.bind(this)}
+              fields={['snum', 'firstName', 'lastName', 'role']}
+              data={this.state.data || []}/>
 
           </div>
           <div className='col-md-6'>
-            <List onSelect={this.addBed.bind(this)}
-                  fields={['id', 'number', 'rnum', 'size']}
+            <List onSelect={this.addStaff.bind(this)}
+                  fields={['snum', 'firstName', 'lastName', 'role']}
                   autoFetch={false}
                   fetch={(args) => {
-                    return PatientService.unassignedBeds(this.props.id);
+                    return SchedulingService.unassignedStaff(this.props.id);
                   } } />
           </div>
         </div>

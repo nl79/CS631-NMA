@@ -132,6 +132,56 @@ return function($router, $req = null, $db = null) {
       echo(json_encode($result[0]));
     }
   });
+
+  $router->get('/:id/beds/unassigned', function($router, $params) use ($req, $db) {
+
+    $sql = "SELECT *
+            FROM bed as b
+            WHERE b.id NOT IN
+              ( SELECT pb.bed
+                FROM patient_bed as pb
+                WHERE pb.patient = " . $db->escape($params['id']) . ")";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+  $router->post('/:patient/beds/:bed', function($router, $params) use ($req, $db) {
+
+    $pb = $db->model('patient_bed');
+    // Set the patient id from the route $params
+    $pb->set('patient', $params['patient']);
+    $pb->set('bed', $params['bed']);
+    if($pb->save()) {
+      echo(json_encode($pb->toArray()));
+    } else {
+      echo(json_encode($pb->getErrors()));
+    }
+  });
+
+  $router->get('/:id/beds', function($router, $params) use ($req, $db) {
+
+    $sql = "SELECT b.*
+            FROM bed as b, patient_bed as pb
+            WHERE b.id = pb.bed
+            AND pb.patient = " . $db->escape($params['id']);
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+  $router->delete('/:patient/beds/:bed', function($router, $params) use ($req, $db) {
+
+    $sql = 'DELETE
+            FROM patient_bed
+            WHERE patient = ' . $db->escape($params['patient']) .
+          ' AND bed = '  . $db->escape($params['bed']);
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+  });
 };
 
 ?>
