@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cfc3f67-7335-4f90-9049-41f1d5414743" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/api/routes/schedule.route.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/Dashboard.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/List.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Shift.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Staff.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/View.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
-      <change beforePath="$PROJECT_DIR$/api/routes/facilities.route.php" afterPath="$PROJECT_DIR$/api/routes/facilities.route.php" />
-      <change beforePath="$PROJECT_DIR$/api/routes/patient.route.php" afterPath="$PROJECT_DIR$/api/routes/patient.route.php" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/index.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Facilities.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Facilities.js" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/SideNav.js" afterPath="$PROJECT_DIR$/client/src/Components/SideNav.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/PatientService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/PatientService.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/routes.js" afterPath="$PROJECT_DIR$/client/src/routes.js" />
       <change beforePath="$PROJECT_DIR$/misc/temp.sql" afterPath="$PROJECT_DIR$/misc/temp.sql" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -61,8 +44,8 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="52" column="76" lean-forward="false" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
+            <state relative-caret-position="556">
+              <caret line="58" column="71" lean-forward="false" selection-start-line="58" selection-start-column="71" selection-end-line="58" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -72,35 +55,13 @@
         <entry file="file://$PROJECT_DIR$/api/routes/schedule.route.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
                 <marker date="1512867398101" expanded="true" signature="894:993" ph="SELECT s.id,... person" />
                 <marker date="1512867398101" expanded="true" signature="894:1102" ph="SELECT s.id,... person" />
                 <marker date="1512867398101" expanded="true" signature="1725:1843" ph="DELETE FROM staff_shift" />
                 <marker date="1512867398101" expanded="true" signature="2057:2354" ph="SELECT s.id,... person" />
                 <marker date="1512867398101" expanded="true" signature="2231:2319" ph="SELECT ss.st... staff_shift" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="patient.route.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/routes/patient.route.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="174" column="2" lean-forward="true" selection-start-line="174" selection-start-column="2" selection-end-line="183" selection-end-column="5" />
-              <folding>
-                <marker date="1512842593698" expanded="true" signature="461:546" ph="SELECT * FRO... person" />
-                <marker date="1512842593698" expanded="true" signature="1363:1648" ph="SELECT c.id,... patient" />
-                <marker date="1512842593698" expanded="true" signature="2208:2333" ph="DELETE FROM patient_staff" />
-                <marker date="1512842593698" expanded="true" signature="2531:2743" ph="SELECT s.id,... person" />
-                <marker date="1512842593698" expanded="true" signature="2946:3247" ph="SELECT s.id,... person" />
-                <marker date="1512842593698" expanded="true" signature="3120:3212" ph="SELECT ps.st... patient_staff" />
-                <marker date="1512842593698" expanded="true" signature="3411:3521" ph="SELECT * FRO... person" />
-                <marker date="1512842593698" expanded="true" signature="3814:4018" ph="SELECT * FRO... bed" />
-                <marker date="1512842593698" expanded="true" signature="3895:3983" ph="SELECT pb.be... patient_bed" />
-                <marker date="1512842593698" expanded="true" signature="4565:4682" ph="SELECT b.* F... bed" />
-                <marker date="1512842593698" expanded="true" signature="4886:5010" ph="DELETE FROM patient_bed" />
               </folding>
             </state>
           </provider>
@@ -119,30 +80,28 @@
       <file leaf-file-name="temp.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/misc/temp.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="83" column="24" lean-forward="false" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="24" />
+            <state relative-caret-position="404">
+              <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Staff.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Staff.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js">
+      <file leaf-file-name="SideNav.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="-309">
+              <caret line="71" column="9" lean-forward="false" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -167,8 +126,8 @@
       <find>skill</find>
       <find>fetch</find>
       <find>update</find>
-      <find>shift</find>
       <find>shiftStaff</find>
+      <find>shift</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -217,9 +176,7 @@
         <option value="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Facilities.js" />
         <option value="$PROJECT_DIR$/api/routes/patient.route.php" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/Dashboard.js" />
-        <option value="$PROJECT_DIR$/client/src/Components/SideNav.js" />
         <option value="$PROJECT_DIR$/client/src/Services/HttpServices/index.js" />
-        <option value="$PROJECT_DIR$/misc/temp.sql" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/index.js" />
         <option value="$PROJECT_DIR$/api/index.php" />
@@ -231,6 +188,8 @@
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Staff.js" />
         <option value="$PROJECT_DIR$/api/routes/schedule.route.php" />
         <option value="$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js" />
+        <option value="$PROJECT_DIR$/misc/temp.sql" />
+        <option value="$PROJECT_DIR$/client/src/Components/SideNav.js" />
         <option value="$PROJECT_DIR$/config.db.php" />
       </list>
     </option>
@@ -332,7 +291,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
               <item name="Scheduling" type="462c0819:PsiDirectoryNode" />
-              <item name="Shifts" type="462c0819:PsiDirectoryNode" />
+              <item name="Appointments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
@@ -505,12 +464,12 @@
       <workItem from="1512226781061" duration="169000" />
       <workItem from="1512326538585" duration="1500000" />
       <workItem from="1512667365015" duration="6926000" />
-      <workItem from="1512789005452" duration="22506000" />
+      <workItem from="1512789005452" duration="25080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49527000" />
+    <option name="totallyTimeSpent" value="52101000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -534,7 +493,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25625" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18958333" sideWeight="0.49529412" order="0" side_tool="false" content_ui="combo" />
@@ -567,16 +526,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/Components/Patients/Patient/Profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/vendor/database/lib/model.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-712">
@@ -790,16 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Room.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -846,14 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -926,16 +857,8 @@
         <state relative-caret-position="668">
           <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="52" column="76" lean-forward="false" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,14 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/misc/temp.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="83" column="24" lean-forward="false" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -978,7 +893,7 @@
     <entry file="file://$PROJECT_DIR$/api/routes/schedule.route.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <marker date="1512867398101" expanded="true" signature="894:993" ph="SELECT s.id,... person" />
             <marker date="1512867398101" expanded="true" signature="894:1102" ph="SELECT s.id,... person" />
@@ -997,6 +912,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Staff.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="559">
@@ -1005,13 +938,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Staff.js">
+    <entry file="file://$PROJECT_DIR$/client/src/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="556">
+          <caret line="58" column="71" lean-forward="false" selection-start-line="58" selection-start-column="71" selection-end-line="58" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-309">
+          <caret line="71" column="9" lean-forward="false" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misc/temp.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

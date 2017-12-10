@@ -55,11 +55,21 @@ let nav = [
   },
   {
     to: '/scheduling',
-    label: 'Scheduling Management',
+    label: 'Schedule Management',
     children: [
       {
         to: '/list',
         label: 'Schedule'
+      },
+      {
+        to: '/appointments',
+        label: 'Appointments',
+        children: [
+          {
+            to: '/new',
+            label: 'New Appointment'
+          }
+        ]
       },
       {
         to: '/shifts',
@@ -67,7 +77,7 @@ let nav = [
         children: [
           {
             to: '/new',
-            label: 'Schedule Shifts'
+            label: 'New Shift'
           }
         ]
       }

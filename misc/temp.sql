@@ -75,7 +75,7 @@ CREATE TABLE contract (
 
 CREATE TABLE shift (
   id     INT                  NOT NULL  AUTO_INCREMENT,
-  `type` ENUM ('1', '2', '3') NOT NULL DEFAULT '1',
+  `type` ENUM ('1', '2', '3') NOT NULL  DEFAULT '1',
   `date` DATE,
 
   PRIMARY KEY (id)
@@ -173,11 +173,13 @@ CREATE TABLE appointment_type_skill (
 );
 
 CREATE TABLE appointment (
-  id     INT NOT NULL    AUTO_INCREMENT,
-  `type` INT NOT NULL,
+  id          INT  NOT NULL    AUTO_INCREMENT,
+  `type`      ENUM ('surgery', 'appointment'),
+  description TEXT NOT NULL,
+  `date`      DATE NOT NULL,
+  `time`      TIME NOT NULL,
 
-  PRIMARY KEY (id),
-  FOREIGN KEY (`type`) REFERENCES appointment_type (id)
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE surgery_type (
