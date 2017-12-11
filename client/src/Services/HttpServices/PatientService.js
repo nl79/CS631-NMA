@@ -4,6 +4,11 @@ let prefix = '/api/patients';
 
 export const PatientService = {
 
+  search(q) {
+    let url = `${prefix}/search`;
+    return axios.get(url, {params: {q}});
+  },
+
   save(params) {
     let url = `${prefix}`;
 
@@ -52,9 +57,9 @@ export const PatientService = {
   },
 
 
-  unassignedStaff(patient) {
+  unassignedStaff(patient, params) {
     let url = `${prefix}/${patient}/staff/unassigned`;
-    return axios.get(url);
+    return axios.get(url, {params});
   },
 
   facilities(id) {
@@ -76,8 +81,8 @@ export const PatientService = {
     return axios.delete(url);
   },
 
-  unassignedBeds(patient) {
+  unassignedBeds(patient, params) {
     let url = `${prefix}/${patient}/beds/unassigned`;
-    return axios.get(url);
+    return axios.get(url, {params});
   }
 }

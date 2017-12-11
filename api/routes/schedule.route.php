@@ -5,6 +5,31 @@ return function($router, $req = null, $db = null) {
 
   /* appointments END POINTS */
 
+  $router->get('/appointments/search', function($router, $params) use ($req, $db) {
+    $q = $db->escape($req->get('q'));
+
+    $sql = "SELECT a.id, CONCAT(p.firstName,' ', p.lastName) AS Patient, a.type, a.description, a.date, a.time
+            FROM appointment as a, person as p
+            WHERE a.patient = p.id";
+
+    if(!empty($q)) {
+      $sql .= " AND (
+                p.firstName LIKE '%$q%'
+              OR p.lastName LIKE '%$q%'
+              OR p.ssn LIKE '$q%'
+              OR p.phnumb LIKE '$q%'
+              OR a.`type` LIKE '$q%'
+            )";
+    }
+
+    $sql .= " ORDER BY a.`date` DESC";
+
+    //print_r($sql);
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
   $router->post('/appointments', function($router, $params) use ($req, $db) {
 
     $model = $db->model('appointment');
@@ -29,11 +54,18 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/appointments', function($router, $params) use ($req, $db) {
 
-    $model = $db->model('appointment')->all();
-    echo(json_encode($model->toArray()));
+    $sql = "SELECT a.id, CONCAT(p.firstName,' ', p.lastName) AS Patient, a.type, a.description, a.date, a.time
+            FROM appointment as a, person as p
+            WHERE a.patient = p.id
+            ORDER BY a.`date` DESC";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
   });
 
   $router->get('/appointments/:id/staff/unassigned', function($router, $params) use ($req, $db) {
+
+    $q = $db->escape($req->get('q'));
 
     $sql = "SELECT s.id, s.snum, p.`firstName`, p.`lastName`, s.`role`
             FROM person as p, staff as s
@@ -42,6 +74,13 @@ return function($router, $req = null, $db = null) {
               ( SELECT sa.staff
                 FROM staff_appointment as sa
                 WHERE sa.appt = " . $db->escape($params['id']) . ")";
+
+    if(!empty($q)) {
+      $sql .= " AND (p.firstName LIKE '%$q%'
+              OR p.lastName LIKE '%$q%'
+              OR p.ssn LIKE '$q%'
+              OR p.phnumb LIKE '$q%')";
+    }
 
     $result = $db->query($sql);
     echo(json_encode($result));
@@ -61,6 +100,19 @@ return function($router, $req = null, $db = null) {
     }
   });
 
+  $router->delete('/appointments/:appt/staff/:staff', function($router, $params) use ($req, $db) {
+
+    $sql = 'DELETE
+            FROM staff_appointment
+            WHERE appt = ' . $db->escape($params['appt']) .
+      ' AND staff = '  . $db->escape($params['staff']);
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+  });
+
+
+
   $router->get('/appointments/:id/staff', function($router, $params) use ($req, $db) {
 
     $sql = "SELECT s.id, s.snum, p.`firstName`, p.`lastName`, s.`role`
@@ -78,12 +130,20 @@ return function($router, $req = null, $db = null) {
   /* appointment facilities assignments */
   $router->get('/appointments/:id/rooms/unassigned', function($router, $params) use ($req, $db) {
 
+    $q = $db->escape($req->get('q'));
+
     $sql = "SELECT *
             FROM room as r
             WHERE r.id NOT IN
               ( SELECT ar.room
                 FROM appointment_room as ar
                 WHERE ar.appt = " . $db->escape($params['id']) . ")";
+
+    if(!empty($q)) {
+      $sql .= " AND (r.`type` LIKE '%$q%'
+                OR r.number LIKE '%$q%'
+              )";
+    }
 
     $result = $db->query($sql);
     echo(json_encode($result));
@@ -101,6 +161,17 @@ return function($router, $req = null, $db = null) {
     } else {
       echo(json_encode($model->getErrors()));
     }
+  });
+
+  $router->delete('/appointments/:appt/rooms/:room', function($router, $params) use ($req, $db) {
+
+    $sql = 'DELETE
+            FROM appointment_room
+            WHERE appt = ' . $db->escape($params['appt']) .
+      ' AND room = '  . $db->escape($params['room']);
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
   });
 
   $router->get('/appointments/:id/rooms', function($router, $params) use ($req, $db) {
@@ -256,6 +327,8 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/shifts/:id/staff/unassigned', function($router, $params) use ($req, $db) {
 
+    $q = $db->escape($req->get('q'));
+
     $sql = "SELECT s.id, s.snum, p.`firstName`, p.`lastName`, s.`role`
             FROM person as p, staff as s
             WHERE p.id = s.id
@@ -264,10 +337,15 @@ return function($router, $req = null, $db = null) {
                 FROM staff_shift as ss
                 WHERE ss.shift = " . $db->escape($params['id']) . ")";
 
+    if(!empty($q)) {
+      $sql .= " AND (p.firstName LIKE '%$q%'
+                OR p.lastName LIKE '%$q%'
+                OR s.`role` LIKE '%$q%'
+              )";
+    }
 
     $result = $db->query($sql);
     echo(json_encode($result));
-
   });
 };
 

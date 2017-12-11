@@ -51,15 +51,20 @@ export class Facilities extends Component {
         <h4> Facilities Assignments </h4>
         <div className='row'>
           <div className='col-md-6'>
-            <h5>Currently Assigned Staff</h5>
+            <h5>Currently Assigned Rooms</h5>
             <Table
+              className='minus'
               onSelect={this.removeRoom.bind(this)}
               data={this.state.data || []} />
 
           </div>
           <div className='col-md-6'>
-            <List onSelect={this.addRoom.bind(this)}
+            <List className='plus'
+                  onSelect={this.addRoom.bind(this)}
                   autoFetch={false}
+                  search={(q) => {
+                    return SchedulingService.unassignedAptRooms(this.props.id, {q});
+                  } }
                   fetch={(args) => {
                     return SchedulingService.unassignedAptRooms(this.props.id);
                   } } />

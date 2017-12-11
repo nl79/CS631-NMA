@@ -4,6 +4,11 @@ let prefix = '/api/staff';
 
 export const StaffService = {
 
+  search(q) {
+    let url = `${prefix}/search`;
+    return axios.get(url, {params: {q}});
+  },
+  
   save(params) {
     let url = `${prefix}`;
 

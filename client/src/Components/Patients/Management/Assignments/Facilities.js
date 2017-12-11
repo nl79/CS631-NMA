@@ -52,17 +52,23 @@ export class Facilities extends Component {
         <h4> Facilities Assignments </h4>
         <div className='row'>
           <div className='col-md-6'>
-            <h5>Currently Assigned Staff</h5>
+            <h5>Currently Assigned Bed</h5>
             <Table
+              className='minus'
               onSelect={this.removeBed.bind(this)}
-              fields={['id', 'number', 'rnum', 'size']}
+              fields={['number', 'rnum', 'size', 'type']}
               data={this.state.data || []} />
 
           </div>
           <div className='col-md-6'>
-            <List onSelect={this.addBed.bind(this)}
-                  fields={['id', 'number', 'rnum', 'size']}
+            <List className='plus'
+                  title={'Bed/Room List'}
+                  onSelect={this.addBed.bind(this)}
+                  fields={['number', 'rnum', 'size', 'type']}
                   autoFetch={false}
+                  search={(q) => {
+                    return PatientService.unassignedBeds(this.props.id, {q});
+                  }}
                   fetch={(args) => {
                     return PatientService.unassignedBeds(this.props.id);
                   } } />

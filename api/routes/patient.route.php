@@ -3,6 +3,27 @@
 return function($router, $req = null, $db = null) {
   $router->mount('/api/patients');
 
+  $router->get('/search', function($router, $params) use ($req, $db) {
+
+    $q = $db->escape($req->get('q'));
+
+    $sql = "SELECT *
+            FROM person as p1, patient as p2
+            WHERE p1.id = p2.id";
+
+    if(!empty($q)) {
+      $sql .= " AND (p1.firstName LIKE '%$q%'
+              OR p1.lastName LIKE '%$q%'
+              OR p1.ssn LIKE '$q%'
+              OR p1.phnumb LIKE '$q%')";
+    }
+
+
+    $result = $db->query($sql);
+
+    echo(json_encode($result));
+  });
+
   $router->post('/', function($router, $params) use ($req, $db) {
 
     $patient = $db->model('patient');
@@ -102,7 +123,7 @@ return function($router, $req = null, $db = null) {
     echo(json_encode($result));
 
   });
-
+  /*
   $router->get('/:id/staff/unassigned', function($router, $params) use ($req, $db) {
 
     $sql = "SELECT s.id, s.snum, p.`firstName`, p.`lastName`, s.`role`
@@ -117,6 +138,34 @@ return function($router, $req = null, $db = null) {
     echo(json_encode($result));
 
   });
+  */
+
+  $router->get('/:id/staff/unassigned', function($router, $params) use ($req, $db) {
+
+    $q = $db->escape($req->get('q'));
+
+    $sql = "SELECT s.id, s.snum, p.`firstName`, p.`lastName`, s.`role`
+            FROM person as p, staff as s
+            WHERE p.id = s.id
+            AND s.id NOT IN
+              ( SELECT ps.staff
+                FROM patient_staff as ps
+                WHERE ps.patient = " . $db->escape($params['id']) . ")";
+
+    if(!empty($q)) {
+      $sql .= " AND (p.firstName LIKE '%$q%'
+              OR p.lastName LIKE '%$q%'
+              OR p.ssn LIKE '$q%'
+              OR p.phnumb LIKE '$q%')";
+    }
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+
+
 
   $router->get('/:id/profile', function($router, $params) use ($req, $db) {
     $sql = "SELECT *
@@ -135,12 +184,23 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/:id/beds/unassigned', function($router, $params) use ($req, $db) {
 
-    $sql = "SELECT *
-            FROM bed as b
-            WHERE b.id NOT IN
+    $q = $db->escape($req->get('q'));
+
+    $sql = "SELECT b.* , r.`type`
+            FROM bed as b, room as r
+            WHERE b.rnum = r.id
+            AND b.id NOT IN
               ( SELECT pb.bed
                 FROM patient_bed as pb
                 WHERE pb.patient = " . $db->escape($params['id']) . ")";
+
+    if(!empty($q)) {
+      $sql .= " AND (r.`type` LIKE '%$q%'
+              OR r.number LIKE '%$q%'
+              OR b.number LIKE '%$q%'
+              OR b.`size` LIKE '%$q%'
+            )";
+    }
 
     $result = $db->query($sql);
     echo(json_encode($result));
@@ -162,9 +222,10 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/:id/beds', function($router, $params) use ($req, $db) {
 
-    $sql = "SELECT b.*
-            FROM bed as b, patient_bed as pb
+    $sql = "SELECT b.*, r.`type`
+            FROM bed as b, room as r,  patient_bed as pb
             WHERE b.id = pb.bed
+            AND b.rnum = r.id
             AND pb.patient = " . $db->escape($params['id']);
 
     $result = $db->query($sql);

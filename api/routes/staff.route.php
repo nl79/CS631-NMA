@@ -14,6 +14,27 @@ return function($router, $req = null, $db = null) {
     }
   });
 
+
+  $router->get('/search', function($router, $params) use ($req, $db) {
+    $q = $db->escape($req->get('q'));
+
+    $sql = "SELECT *
+            FROM person as p, staff as s
+            WHERE p.id = s.id";
+
+    if(!empty($q)) {
+      $sql .= " AND (p.firstName LIKE '%$q%'
+              OR p.lastName LIKE '%$q%'
+              OR p.ssn LIKE '$q%'
+              OR p.phnumb LIKE '$q%')";
+    }
+
+
+    $result = $db->query($sql);
+
+    echo(json_encode($result));
+  });
+
   $router->get('/list', function($router, $params) use ($req, $db) {
 
     $sql = "SELECT *
@@ -50,14 +71,6 @@ return function($router, $req = null, $db = null) {
     $result = $db->query($sql);
 
     echo(json_encode($result));
-
-  });
-
-  $router->get('/search', function($router, $params) use ($req, $db) {
-
-    print_r($req->raw());
-
-    $staff = $db->model('staff')->where('id', $params['id']);
 
   });
 

@@ -39,6 +39,7 @@ const fields = [
       console.log('ontypeChange',e);
     }
   },
+  /*
   {
     name:"duration",
     label:"Duration",
@@ -46,6 +47,7 @@ const fields = [
     placeholder: 'Duration...',
     maxlength: 6
   },
+  */
   {
     name:"role",
     label:"Role",

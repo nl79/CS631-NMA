@@ -54,15 +54,20 @@ export class Staff extends Component {
           <div className='col-md-6'>
             <h5>Currently Assigned Staff</h5>
             <Table
+              className='minus'
               onSelect={this.removeStaff.bind(this)}
               fields={['snum', 'firstName', 'lastName', 'role']}
               data={this.state.data || []}/>
 
           </div>
           <div className='col-md-6'>
-            <List onSelect={this.addStaff.bind(this)}
+            <List className='plus'
+                  onSelect={this.addStaff.bind(this)}
                   fields={['snum', 'firstName', 'lastName', 'role']}
                   autoFetch={false}
+                  search={(q) => {
+                    return SchedulingService.unassignedAptStaff(this.props.id, {q});
+                  } }
                   fetch={(args) => {
                     return SchedulingService.unassignedAptStaff(this.props.id);
                   } } />

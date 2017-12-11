@@ -16,10 +16,18 @@ return function($router, $req = null, $db = null) {
 
   $router->get('/rooms', function($router, $params) use ($req, $db) {
 
-    $room = $db->model('room')->all();
+    $q = $db->escape($req->get('q'));
 
-    echo(json_encode($room->toArray()));
+    $sql = "SELECT r.*
+            FROM room AS r ";
 
+    if(!empty($q)) {
+      $sql .= " WHERE r.type LIKE '%$q%'
+              OR r.number LIKE '%$q%'";
+    }
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
   });
 
   $router->get('/rooms/:id', function($router, $params) use ($req, $db) {

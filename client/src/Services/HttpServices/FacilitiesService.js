@@ -24,7 +24,7 @@ export const FacilitiesService = {
 
   listRooms(params) {
     let url = `${prefix}/rooms`;
-    return axios.get(url, params);
+    return axios.get(url, {params});
   },
 
   getBeds(id) {

@@ -22,7 +22,7 @@ const fields = [
   {
     name:"number",
     label:"Bed Number",
-    placeholder: 'Room Number...',
+    placeholder: 'Bed Number...',
     type:"number",
     maxlength: '4'
   },

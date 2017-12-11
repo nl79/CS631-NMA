@@ -22,7 +22,7 @@ export default (
   <Route path='/' component={App}>
     <IndexRoute component={Dashboard} />
     <Route path='/patients' component={Patients.View}>
-      <IndexRoute component={Patients.Dashboard} />
+      <IndexRoute component={Patients.List} />
       <Route path='/patients/list' component={Patients.List} />
       <Route path='/patients/new' component={Patients.Patient.View} />
       <Route path='/patients/:id/view' component={Patients.Patient.View} />
@@ -30,7 +30,7 @@ export default (
       <Route path='/patients/:id/management' component={Patients.Management.Dashboard} />
     </Route>
     <Route path='/staff'>
-      <IndexRoute component={Staff.Dashboard} />
+      <IndexRoute component={Staff.List} />
       <Route path='/staff/list' component={Staff.List} />
       <Route path='/staff/new' component={Staff.Member.View} />
       <Route path='/staff/:id/view' component={Staff.Member.View} />
@@ -42,7 +42,7 @@ export default (
       <Route path='/medication/:id/view' component={Medication.Medication} />
     </Route>
     <Route path='/facilities'>
-      <IndexRoute component={Facilities.Dashboard} />
+      <IndexRoute component={Facilities.List} />
       <Route path='/facilities/list' component={Facilities.List} />
       <Route path='/facilities/room/new' component={Facilities.Room.View} />
       <Route path='/facilities/room/:id/view' component={Facilities.Room.View} />

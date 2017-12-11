@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { FacilitiesService } from '../../../Services/HttpServices/FacilitiesService';
 import { Table } from '../../Common/Table';
 import { browserHistory } from 'react-router';
+import { SearchBar } from '../../Common/SearchBar';
 
 export class List extends Component {
   constructor(props) {
@@ -41,11 +42,6 @@ export class List extends Component {
     });
   }
 
-  submit() {
-    console.log('submit', this.state.query);
-
-  }
-
   componentWillReceiveProps(props) {
     console.log('Facilities$ListcomponentWillReceiveProps#props', props);
     this.fetch();
@@ -59,26 +55,32 @@ export class List extends Component {
     }
   }
 
+  onSearch(q) {
+
+    let result;
+    // Check if a custom fetch method is provided/
+    if(this.props.search) {
+      result = this.props.search(q);
+    } else {
+      result = FacilitiesService.listRooms({q});
+    }
+
+    result.then(res => {
+      this.setState({
+        ...this.state,
+        list: res.data || []
+      });
+    });
+  }
+
   render() {
     return (
       <div>
-        <h5>Room List</h5>
-        <div className='row'>
-          <div className="col-lg-6">
-            <div className="input-group">
-              <input type="text" className="form-control" onChange={(e) => {
-                this.setState({query: e.target.value})
-              }} value={this.state.query} placeholder="Search for..."/>
-              <span className="input-group-btn">
-                <button className="btn btn-default" type="button" onClick={(e) => {
-                  this.submit()
-                }}>Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
+        <h5>{this.props.title || 'Room List'}</h5>
 
-        <Table
+        <SearchBar onSubmit={this.onSearch.bind(this)}/>
+
+        <Table className={this.props.className || ''}
           data={this.state.list}
           fields={this.props.fields}
           onSelect={this.onRowClick.bind(this)}/>

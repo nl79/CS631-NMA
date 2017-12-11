@@ -4,6 +4,7 @@ import {StaffService} from "../../../Services/HttpServices/StaffService";
 import {browserHistory} from "react-router";
 
 import { Table } from '../../Common/Table';
+import { SearchBar } from '../../Common/SearchBar';
 
 export class List extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export class List extends Component {
     if(this.props.fetch) {
       result = this.props.fetch();
     } else {
-      result = StaffService.list();
+      result = StaffService.search();
     }
 
     result.then(res => {
@@ -42,10 +43,7 @@ export class List extends Component {
     });
   }
 
-  submit() {
-    console.log('submit', this.state.query);
 
-  }
 
   componentWillReceiveProps(props) {
     console.log('Staff$ListcomponentWillReceiveProps#props', props);
@@ -60,26 +58,42 @@ export class List extends Component {
     }
   }
 
+  onSearch(q) {
+    let result;
+
+    // Check if a custom fetch method is provided/
+    if(this.props.search) {
+      result = this.props.search(q);
+    } else {
+      result = StaffService.search(q);
+    }
+
+    result.then(res => {
+      this.setState({
+        ...this.state,
+        list: res.data || []
+      });
+    });
+/*
+    StaffService.search(q).then(res => {
+      console.log('serach#res', res);
+      this.setState({
+        ...this.state,
+        list: res.data || []
+      });
+
+    });
+    */
+  }
+
   render() {
     return (
       <div>
         <h5>Staff List</h5>
-        <div className='row'>
-          <div className="col-lg-6">
-            <div className="input-group">
-              <input type="text" className="form-control" onChange={(e) => {
-                this.setState({query: e.target.value})
-              }} value={this.state.query} placeholder="Search for..."/>
-              <span className="input-group-btn">
-                <button className="btn btn-default" type="button" onClick={(e) => {
-                  this.submit()
-                }}>Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
+        <SearchBar onSubmit={this.onSearch.bind(this)}/>
 
         <Table
+          className={this.props.className || ''}
           data={this.state.list}
           fields={this.props.fields}
           onSelect={this.onRowClick.bind(this)}/>

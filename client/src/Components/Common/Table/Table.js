@@ -19,8 +19,11 @@ export class Table extends Component {
   }
 
   render() {
+    if(!this.props.data || !this.props.data.length) {
+      return (<div><h5 className='text-center'>No Results Found.</h5></div>);
+    }
     return (
-      <table className='table'>
+      <table className={`table ${this.props.className}`}>
         <thead>
         </thead>
         <tbody className='table-striped'>

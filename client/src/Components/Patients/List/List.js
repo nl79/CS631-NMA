@@ -5,6 +5,7 @@ import { PatientService } from '../../../Services/HttpServices/PatientService';
 import { browserHistory } from 'react-router';
 
 import { Table } from '../../Common/Table';
+import { SearchBar } from '../../Common/SearchBar';
 
 
 export class List extends Component {
@@ -26,13 +27,16 @@ export class List extends Component {
     })
 
   }
-  submit() {
+  onSearch(q) {
 
-    if(this.props.onSearch) {
-      this.props.onSearch(o);
-    } else {
-        //perform search
-    }
+    PatientService.search(q).then(res => {
+      console.log('serach#res', res);
+      this.setState({
+        ...this.state,
+        list: res.data || []
+      });
+
+    });
   }
 
   onRowClick(o) {
@@ -47,17 +51,10 @@ export class List extends Component {
   render() {
     return (
       <div>
-        { this.props.title || 'Patient List' }
-        <div className='row'>
-          <div className="col-lg-6">
-            <div className="input-group">
-              <input type="text" className="form-control" onChange={(e) => { this.setState({query: e.target.value}) } } value={ this.state.query } placeholder="Search for..."/>
-              <span className="input-group-btn">
-                <button className="btn btn-default" type="button" onClick={(e)=>{this.submit()}}>Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
+        <h5>{ this.props.title || 'Patient List' }</h5>
+
+        <SearchBar onSubmit={this.onSearch.bind(this)}/>
+
 
         <Table
           data={this.state.list}

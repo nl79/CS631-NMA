@@ -4,6 +4,11 @@ let prefix = '/api/scheduling';
 
 export const SchedulingService = {
 
+  search(q) {
+    let url = `${prefix}/appointments/search`;
+    return axios.get(url, {params: {q}});
+  },
+
   list() {
     let url = `${prefix}/shifts`;
 
@@ -43,9 +48,9 @@ export const SchedulingService = {
     return axios.delete(url);
   },
 
-  unassignedAptStaff(id) {
+  unassignedAptStaff(id, params) {
     let url = `${prefix}/appointments/${id}/staff/unassigned`;
-    return axios.get(url);
+    return axios.get(url, {params});
   },
 
   appointmentRooms(id) {
@@ -63,9 +68,9 @@ export const SchedulingService = {
     return axios.delete(url);
   },
 
-  unassignedAptRooms(id) {
+  unassignedAptRooms(id, params) {
     let url = `${prefix}/appointments/${id}/rooms/unassigned`;
-    return axios.get(url);
+    return axios.get(url, {params});
   },
 
   appointmentsBy(type, id) {
@@ -94,9 +99,9 @@ export const SchedulingService = {
     return axios.get(url);
   },
 
-  unassignedStaff(id) {
+  unassignedStaff(id, params) {
     let url = `${prefix}/shifts/${id}/staff/unassigned`;
-    return axios.get(url);
+    return axios.get(url, {params});
   },
   assignStaff(shift, staff) {
     let url = `${prefix}/shifts/${shift}/staff/${staff}`;
