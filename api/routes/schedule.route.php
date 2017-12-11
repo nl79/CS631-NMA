@@ -116,11 +116,70 @@ return function($router, $req = null, $db = null) {
   });
 
 
-  $router->get('/appointments/reports/:type/:id', function($router, $params) use ($req, $db) {
+  $router->get('/appointments/reports/staff/:id', function($router, $params) use ($req, $db) {
+    $sql = "SELECT p.firstName, p.lastName, a.*
+            FROM person as p, staff as s, appointment as a, staff_appointment as sa
+            WHERE s.id = sa.staff
+            AND a.id = sa.appt
+            AND s.id = p.id
+            AND sa.staff = " . $db->escape($params['id']) .
+            " ORDER BY a.`date` DESC";
 
+    $result = $db->query($sql);
+    echo(json_encode($result));
 
+  });
 
-    print_r($params);
+  $router->get('/appointments/reports/staff', function($router, $params) use ($req, $db) {
+    $sql = "SELECT p.firstName, p.lastName, a.*
+            FROM person as p, staff as s, appointment as a, staff_appointment as sa
+            WHERE s.id = sa.staff
+            AND a.id = sa.appt
+            AND s.id = p.id
+            ORDER BY a.`date` DESC";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+  $router->get('/appointments/reports/patients/:id', function($router, $params) use ($req, $db) {
+    $sql = "SELECT p.firstName, p.lastName, a.*
+            FROM person as p, patient as p2, appointment as a
+            WHERE a.patient = p2.id
+            AND p2.id = p.id
+            AND a.patient = " . $db->escape($params['id']) .
+      " ORDER BY a.`date` DESC";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+  $router->get('/appointments/reports/rooms/:id', function($router, $params) use ($req, $db) {
+    $sql = "SELECT p.firstName, p.lastName, a.*
+            FROM person as p, patient as p2, appointment as a, appointment_room as ar
+            WHERE p2.id = p.id
+            AND a.patient = p2.id
+            AND ar.appt = a.id
+            AND ar.room = " . $db->escape($params['id']) .
+      " ORDER BY a.`date` DESC";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
+
+  });
+
+  $router->get('/appointments/reports/rooms', function($router, $params) use ($req, $db) {
+    $sql = "SELECT p.firstName, p.lastName, a.*
+            FROM person as p, patient as p2, appointment as a, appointment_room as ar
+            WHERE p2.id = p.id
+            AND a.patient = p2.id
+            AND ar.appt = a.id
+            ORDER BY a.`date` DESC";
+
+    $result = $db->query($sql);
+    echo(json_encode($result));
 
   });
 

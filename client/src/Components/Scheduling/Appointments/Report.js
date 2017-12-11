@@ -12,30 +12,36 @@ export class Report extends Component {
     super(props);
 
     this.state = {
-      patient: ''
+      type: '',
+      list: []
     };
   }
 
-  init() {
-
-  }
-
   componentWillMount() {
-    console.log('Report#componentWillMount', this);
-
+   //console.log('Report#componentWillMount', this);
   }
 
   componentWillReceiveProps(props) {
-    console.log('Report#componentWillReceiveProps', props);
 
+    let type = props.routeParams && props.routeParams.type || '';
+
+    if(this.state.type !== type) {
+      this.setState({
+        type: type,
+        list: []
+      });
+    }
   }
 
-  onSelect(o) {
+  onSelect(o, type) {
     SchedulingService.appointmentsBy(
       this.props.routeParams && this.props.routeParams.type || '', o.id)
       .then((res) => {
-        console.log('res', res);
-      })
+        this.setState({
+          type: type,
+          list: res.data
+        });
+      });
   }
 
   onApptSelect(o) {
@@ -44,13 +50,12 @@ export class Report extends Component {
 
   renderList(type) {
     switch (type) {
-      case 'patient':
-        return (<Patients onSelect={this.onSelect.bind(this)} />)
+      case 'patients':
+        return <Patients onSelect={ (o) => { this.onSelect(o, type) } } />;
       case 'staff':
-        return (<Staff onSelect={this.onSelect.bind(this)} />)
-      case 'room':
-        return (<Rooms onSelect={this.onSelect.bind(this)} />)
-
+        return <Staff onSelect={ (o) => { this.onSelect(o, type) } } />;
+      case 'rooms':
+        return <Rooms onSelect={ (o) => { this.onSelect(o, type) } }/>;
     }
   }
 
@@ -62,7 +67,6 @@ export class Report extends Component {
 
         <Table
           data={this.state.list || [] }
-          fields={this.props.fields}
           onSelect={this.onApptSelect.bind(this)}/>
       </div>
     );

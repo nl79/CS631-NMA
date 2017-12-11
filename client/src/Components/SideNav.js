@@ -66,7 +66,7 @@ let nav = [
             label: 'New Appointment'
           },
           {
-            to: '/room/report',
+            to: '/rooms/report',
             label: 'By Room'
           },
           {
@@ -74,7 +74,7 @@ let nav = [
             label: 'By Doctor'
           },
           {
-            to: '/patient/report',
+            to: '/patients/report',
             label: 'By Patient'
           }
         ]

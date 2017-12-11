@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cfc3f67-7335-4f90-9049-41f1d5414743" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/api/routes/schedule.route.php" afterPath="$PROJECT_DIR$/api/routes/schedule.route.php" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/List.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/SideNav.js" afterPath="$PROJECT_DIR$/client/src/Components/SideNav.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/routes.js" afterPath="$PROJECT_DIR$/client/src/routes.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,26 +35,6 @@
     </expand>
     <select />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="temp.sql" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/misc/temp.sql">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="501">
-                    <caret line="211" column="29" lean-forward="false" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="29" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="CS631-NMA" />
   </component>
@@ -68,7 +43,7 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
+            <state relative-caret-position="668">
               <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
               <folding />
             </state>
@@ -78,21 +53,33 @@
       <file leaf-file-name="schedule.route.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/routes/schedule.route.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+            <state relative-caret-position="329">
+              <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
               <folding>
-                <marker date="1512941300245" expanded="true" signature="979:1281" ph="SELECT s.id,... person" />
-                <marker date="1512941300245" expanded="true" signature="1153:1246" ph="SELECT sa.st... staff_appointment" />
-                <marker date="1512941300245" expanded="true" signature="1877:2090" ph="SELECT s.id,... person" />
-                <marker date="1512941300245" expanded="true" signature="2350:2558" ph="SELECT * FRO... room" />
-                <marker date="1512941300245" expanded="true" signature="2520:2523" ph="SELECT sa.ro... appointment_room" />
-                <marker date="1512941300245" expanded="true" signature="2520:2558" ph="SELECT s.id,... person" />
-                <marker date="1512941300245" expanded="true" signature="3150:3271" ph="SELECT r.* F... room" />
-                <marker date="1512941300245" expanded="true" signature="4329:4428" ph="SELECT s.id,... person" />
-                <marker date="1512941300245" expanded="true" signature="4329:4537" ph="SELECT s.id,... person" />
-                <marker date="1512941300245" expanded="true" signature="5160:5278" ph="DELETE FROM staff_shift" />
-                <marker date="1512941300245" expanded="true" signature="5492:5789" ph="SELECT s.id,... person" />
-                <marker date="1512941300245" expanded="true" signature="5666:5754" ph="SELECT ss.st... staff_shift" />
+                <marker date="1512950442475" expanded="true" signature="979:1281" ph="SELECT s.id,... person" />
+                <marker date="1512950442475" expanded="true" signature="1153:1246" ph="SELECT sa.st... staff_appointment" />
+                <marker date="1512950442475" expanded="true" signature="1877:2090" ph="SELECT s.id,... person" />
+                <marker date="1512950442475" expanded="true" signature="2350:2558" ph="SELECT * FRO... room" />
+                <marker date="1512950442475" expanded="true" signature="2520:2523" ph="SELECT sa.ro... appointment_room" />
+                <marker date="1512950442475" expanded="true" signature="2520:2558" ph="SELECT s.id,... person" />
+                <marker date="1512950442475" expanded="true" signature="3150:3271" ph="SELECT r.* F... room" />
+                <marker date="1512950442475" expanded="true" signature="3484:3696" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="3484:3724" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="3484:3793" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="3484:3794" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="3972:4184" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="3972:4219" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="3972:4253" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="4405:4659" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="4842:5149" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="5328:5545" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="5328:5580" ph="SELECT p.fir... person" />
+                <marker date="1512950442475" expanded="true" signature="5660:5681" ph="/* SHIFT END... " />
+                <marker date="1512950442475" expanded="true" signature="6480:6579" ph="SELECT s.id,... person" />
+                <marker date="1512950442475" expanded="true" signature="6480:6688" ph="SELECT s.id,... person" />
+                <marker date="1512950442475" expanded="true" signature="7311:7429" ph="DELETE FROM staff_shift" />
+                <marker date="1512950442475" expanded="true" signature="7643:7940" ph="SELECT s.id,... person" />
+                <marker date="1512950442475" expanded="true" signature="7817:7905" ph="SELECT ss.st... staff_shift" />
               </folding>
             </state>
           </provider>
@@ -101,11 +88,21 @@
       <file leaf-file-name="Report.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="51" selection-end-column="62" />
+            <state relative-caret-position="210">
+              <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="temp.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/misc/temp.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="211" column="29" lean-forward="false" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,6 +115,16 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SideNav.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,18 +167,8 @@
       <file leaf-file-name="SchedulingService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
+            <state relative-caret-position="404">
               <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -247,13 +244,13 @@
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Facilities.js" />
         <option value="$PROJECT_DIR$/misc/temp.sql" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/View.js" />
-        <option value="$PROJECT_DIR$/client/src/Components/SideNav.js" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js" />
         <option value="$PROJECT_DIR$/client/src/routes.js" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/List.js" />
-        <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" />
         <option value="$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js" />
         <option value="$PROJECT_DIR$/api/routes/schedule.route.php" />
+        <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" />
+        <option value="$PROJECT_DIR$/client/src/Components/SideNav.js" />
         <option value="$PROJECT_DIR$/config.db.php" />
       </list>
     </option>
@@ -548,12 +545,12 @@
       <workItem from="1512326538585" duration="1500000" />
       <workItem from="1512667365015" duration="6926000" />
       <workItem from="1512789005452" duration="25158000" />
-      <workItem from="1512918876796" duration="18790000" />
+      <workItem from="1512918876796" duration="23905000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70969000" />
+    <option name="totallyTimeSpent" value="76084000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -919,22 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="73" column="30" lean-forward="true" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1000,27 +981,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="51" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/misc/temp.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
+        <state relative-caret-position="445">
           <caret line="211" column="29" lean-forward="false" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="29" />
           <folding />
         </state>
@@ -1028,22 +991,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/routes/schedule.route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        <state relative-caret-position="329">
+          <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
           <folding>
-            <marker date="1512941300245" expanded="true" signature="979:1281" ph="SELECT s.id,... person" />
-            <marker date="1512941300245" expanded="true" signature="1153:1246" ph="SELECT sa.st... staff_appointment" />
-            <marker date="1512941300245" expanded="true" signature="1877:2090" ph="SELECT s.id,... person" />
-            <marker date="1512941300245" expanded="true" signature="2350:2558" ph="SELECT * FRO... room" />
-            <marker date="1512941300245" expanded="true" signature="2520:2523" ph="SELECT sa.ro... appointment_room" />
-            <marker date="1512941300245" expanded="true" signature="2520:2558" ph="SELECT s.id,... person" />
-            <marker date="1512941300245" expanded="true" signature="3150:3271" ph="SELECT r.* F... room" />
-            <marker date="1512941300245" expanded="true" signature="4329:4428" ph="SELECT s.id,... person" />
-            <marker date="1512941300245" expanded="true" signature="4329:4537" ph="SELECT s.id,... person" />
-            <marker date="1512941300245" expanded="true" signature="5160:5278" ph="DELETE FROM staff_shift" />
-            <marker date="1512941300245" expanded="true" signature="5492:5789" ph="SELECT s.id,... person" />
-            <marker date="1512941300245" expanded="true" signature="5666:5754" ph="SELECT ss.st... staff_shift" />
+            <marker date="1512950442475" expanded="true" signature="979:1281" ph="SELECT s.id,... person" />
+            <marker date="1512950442475" expanded="true" signature="1153:1246" ph="SELECT sa.st... staff_appointment" />
+            <marker date="1512950442475" expanded="true" signature="1877:2090" ph="SELECT s.id,... person" />
+            <marker date="1512950442475" expanded="true" signature="2350:2558" ph="SELECT * FRO... room" />
+            <marker date="1512950442475" expanded="true" signature="2520:2523" ph="SELECT sa.ro... appointment_room" />
+            <marker date="1512950442475" expanded="true" signature="2520:2558" ph="SELECT s.id,... person" />
+            <marker date="1512950442475" expanded="true" signature="3150:3271" ph="SELECT r.* F... room" />
+            <marker date="1512950442475" expanded="true" signature="3484:3696" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="3484:3724" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="3484:3793" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="3484:3794" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="3972:4184" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="3972:4219" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="3972:4253" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="4405:4659" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="4842:5149" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="5328:5545" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="5328:5580" ph="SELECT p.fir... person" />
+            <marker date="1512950442475" expanded="true" signature="5660:5681" ph="/* SHIFT END... " />
+            <marker date="1512950442475" expanded="true" signature="6480:6579" ph="SELECT s.id,... person" />
+            <marker date="1512950442475" expanded="true" signature="6480:6688" ph="SELECT s.id,... person" />
+            <marker date="1512950442475" expanded="true" signature="7311:7429" ph="DELETE FROM staff_shift" />
+            <marker date="1512950442475" expanded="true" signature="7643:7940" ph="SELECT s.id,... person" />
+            <marker date="1512950442475" expanded="true" signature="7817:7905" ph="SELECT ss.st... staff_shift" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
