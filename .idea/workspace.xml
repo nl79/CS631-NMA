@@ -2,9 +2,151 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cfc3f67-7335-4f90-9049-41f1d5414743" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/565f15dd-b799-49b4-a3d4-0265b5f0507a.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/565f15dd-b799-49b4-a3d4-0265b5f0507a.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8011f29a-fe1d-426a-af36-03bc2e11eda6.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/8011f29a-fe1d-426a-af36-03bc2e11eda6.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/CS631-NMA.iml" afterPath="$PROJECT_DIR$/CS631-NMA.iml" />
+      <change beforePath="$PROJECT_DIR$/api/index.php" afterPath="$PROJECT_DIR$/api/index.php" />
+      <change beforePath="$PROJECT_DIR$/api/routes/condition.route.php" afterPath="$PROJECT_DIR$/api/routes/condition.route.php" />
+      <change beforePath="$PROJECT_DIR$/api/routes/facilities.route.php" afterPath="$PROJECT_DIR$/api/routes/facilities.route.php" />
+      <change beforePath="$PROJECT_DIR$/api/routes/patient.route.php" afterPath="$PROJECT_DIR$/api/routes/patient.route.php" />
+      <change beforePath="$PROJECT_DIR$/api/routes/person.route.php" afterPath="$PROJECT_DIR$/api/routes/person.route.php" />
       <change beforePath="$PROJECT_DIR$/api/routes/schedule.route.php" afterPath="$PROJECT_DIR$/api/routes/schedule.route.php" />
+      <change beforePath="$PROJECT_DIR$/api/routes/staff.route.php" afterPath="$PROJECT_DIR$/api/routes/staff.route.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-request/index.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-request/index.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-request/request.class.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-request/request.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-router/index.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-router/index.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-router/lib/configuration.trait.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-router/lib/configuration.trait.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-router/lib/hooks.trait.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-router/lib/hooks.trait.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-router/lib/middleware.trait.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-router/lib/middleware.trait.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-router/router.class.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-router/router.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/alpha-router/test/unit/RouterTest.php" afterPath="$PROJECT_DIR$/api/vendor/alpha-router/test/unit/RouterTest.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/index.php" afterPath="$PROJECT_DIR$/api/vendor/database/index.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/lib/_base.class.php" afterPath="$PROJECT_DIR$/api/vendor/database/lib/_base.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/lib/collection.class.php" afterPath="$PROJECT_DIR$/api/vendor/database/lib/collection.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/lib/database.class.php" afterPath="$PROJECT_DIR$/api/vendor/database/lib/database.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/lib/field.class.php" afterPath="$PROJECT_DIR$/api/vendor/database/lib/field.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/lib/model.class.php" afterPath="$PROJECT_DIR$/api/vendor/database/lib/model.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/lib/query.class.php" afterPath="$PROJECT_DIR$/api/vendor/database/lib/query.class.php" />
+      <change beforePath="$PROJECT_DIR$/api/vendor/database/lib/row.class.php" afterPath="$PROJECT_DIR$/api/vendor/database/lib/row.class.php" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" afterPath="$PROJECT_DIR$/client/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Form/Field.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Form/Field.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Form/Form.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Form/Form.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Form/Radio.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Form/Radio.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Form/Select.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Form/Select.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Form/Text.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Form/Text.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Form/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Form/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Input.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Input.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Table/Table.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Table/Table.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/Table/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/Table/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Common/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Common/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Dashboard/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Dashboard/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/Bed.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/Bed.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/Beds.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/Beds.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Bed/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Dashboard/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Dashboard/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/List/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/List/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/List/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/List/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Room/Room.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Room/Room.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Room/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Room/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/Room/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/Room/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/View/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/View/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/View/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/View/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Facilities/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Facilities/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Medication/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Medication/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Medication/Dashboard/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Medication/Dashboard/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Medication/List/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Medication/List/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Medication/List/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Medication/List/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Medication/Medication/Medication.js" afterPath="$PROJECT_DIR$/client/src/Components/Medication/Medication/Medication.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Medication/Medication/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Medication/Medication/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Medication/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Medication/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Navbar.js" afterPath="$PROJECT_DIR$/client/src/Components/Navbar.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/Condition.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/Condition.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/Conditions.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/Conditions.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Conditions/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Dashboard/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Dashboard/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/List/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/List/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/List/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/List/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Assignments.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Assignments.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Facilities.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Facilities.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Staff.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/Staff.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/Assignments/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Management/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Management/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Patient/Patient.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Patient/Patient.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Patient/Profile.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Patient/Profile.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Patient/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Patient/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/Patient/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/Patient/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/View/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/View/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/View/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/View/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Patients/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Patients/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Person/Actions/Actions.js" afterPath="$PROJECT_DIR$/client/src/Components/Person/Actions/Actions.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Person/Person.js" afterPath="$PROJECT_DIR$/client/src/Components/Person/Person.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Person/Reducers/Reducers.js" afterPath="$PROJECT_DIR$/client/src/Components/Person/Reducers/Reducers.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Person/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Person/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Appointment.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Appointment.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Facilities.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Facilities.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/List.js" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Staff.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Staff.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Shift.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Shift.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Staff.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Staff.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Scheduling/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Scheduling/index.js" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/SideNav.js" afterPath="$PROJECT_DIR$/client/src/Components/SideNav.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Skill/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Skill/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Skill/Skill.js" afterPath="$PROJECT_DIR$/client/src/Components/Skill/Skill.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Skill/Skills.js" afterPath="$PROJECT_DIR$/client/src/Components/Skill/Skills.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Skill/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Skill/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/Dashboard/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/Dashboard/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/List/List.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/List/List.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/List/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/List/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/Member/Member.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/Member/Member.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/Member/View.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/Member/View.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/Member/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/Member/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Staff/index.js" afterPath="$PROJECT_DIR$/client/src/Components/Staff/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/ConditionService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/ConditionService.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/FacilitiesService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/FacilitiesService.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/HttpService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/HttpService.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/PatientService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/PatientService.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/PersonServices.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/PersonServices.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/SkillService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/SkillService.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/StaffService.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/StaffService.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/HttpServices/index.js" afterPath="$PROJECT_DIR$/client/src/Services/HttpServices/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Utils/State.js" afterPath="$PROJECT_DIR$/client/src/Utils/State.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/Utils/index.js" afterPath="$PROJECT_DIR$/client/src/Utils/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes.js" afterPath="$PROJECT_DIR$/client/src/routes.js" />
+      <change beforePath="$PROJECT_DIR$/config.db.php" afterPath="$PROJECT_DIR$/config.db.php" />
+      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change beforePath="$PROJECT_DIR$/misc/temp.sql" afterPath="$PROJECT_DIR$/misc/temp.sql" />
+      <change beforePath="$PROJECT_DIR$/router.php" afterPath="$PROJECT_DIR$/router.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +185,7 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
+            <state relative-caret-position="900">
               <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
               <folding />
             </state>
@@ -53,8 +195,8 @@
       <file leaf-file-name="schedule.route.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/routes/schedule.route.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+            <state relative-caret-position="2145">
+              <caret line="143" column="5" lean-forward="false" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
               <folding>
                 <marker date="1512950442475" expanded="true" signature="979:1281" ph="SELECT s.id,... person" />
                 <marker date="1512950442475" expanded="true" signature="1153:1246" ph="SELECT sa.st... staff_appointment" />
@@ -88,30 +230,8 @@
       <file leaf-file-name="Report.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="temp.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/misc/temp.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="211" column="29" lean-forward="false" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="View.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/View.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="71" column="17" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+            <state relative-caret-position="645">
+              <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -122,34 +242,9 @@
       <file leaf-file-name="SideNav.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+            <state relative-caret-position="1065">
+              <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Dashboard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-              <folding>
-                <marker date="1512928705612" expanded="true" signature="545:778" ph="..." />
-                <marker date="1512928705612" expanded="true" signature="696:772" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="List.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/List.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="92" column="8" lean-forward="false" selection-start-line="92" selection-start-column="8" selection-end-line="95" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -164,10 +259,50 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="router.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SchedulingService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
+            <state relative-caret-position="1155">
               <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
               <folding />
             </state>
@@ -201,8 +336,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/Components/Skill/index.js" />
-        <option value="$PROJECT_DIR$/client/src/Services/HttpServices/SkillService.js" />
         <option value="$PROJECT_DIR$/client/src/Components/Skill/Skill.js" />
         <option value="$PROJECT_DIR$/client/src/Services/HttpServices/PersonServices.js" />
         <option value="$PROJECT_DIR$/client/src/Components/Skill/Skills.js" />
@@ -230,7 +363,6 @@
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Dashboard/Dashboard.js" />
         <option value="$PROJECT_DIR$/client/src/Services/HttpServices/index.js" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/index.js" />
-        <option value="$PROJECT_DIR$/api/index.php" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/Shift.js" />
         <option value="$PROJECT_DIR$/api/routes/facilities.route.php" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/List.js" />
@@ -251,6 +383,9 @@
         <option value="$PROJECT_DIR$/api/routes/schedule.route.php" />
         <option value="$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js" />
         <option value="$PROJECT_DIR$/client/src/Components/SideNav.js" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/api/index.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/config.db.php" />
       </list>
     </option>
@@ -284,7 +419,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -301,93 +438,7 @@
             <path>
               <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Facilities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Patients" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Patients" type="462c0819:PsiDirectoryNode" />
-              <item name="Management" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Patients" type="462c0819:PsiDirectoryNode" />
-              <item name="Management" type="462c0819:PsiDirectoryNode" />
-              <item name="Assignments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scheduling" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scheduling" type="462c0819:PsiDirectoryNode" />
-              <item name="Appointments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS631-NMA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-              <item name="HttpServices" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS631-NMA" type="b2602c69:ProjectViewProjectNode" />
@@ -398,8 +449,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -545,12 +594,13 @@
       <workItem from="1512326538585" duration="1500000" />
       <workItem from="1512667365015" duration="6926000" />
       <workItem from="1512789005452" duration="25158000" />
-      <workItem from="1512918876796" duration="23905000" />
+      <workItem from="1512918876796" duration="23949000" />
+      <workItem from="1512953676255" duration="3346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76084000" />
+    <option name="totallyTimeSpent" value="79474000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -572,8 +622,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25625" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25625" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -583,8 +633,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25537634" sideWeight="0.5047059" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -607,28 +657,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/Components/Facilities/Room/View.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="47" column="12" lean-forward="false" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Components/Facilities/Bed/Bed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="45" column="6" lean-forward="false" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Services/HttpServices/FacilitiesService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -636,9 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -646,7 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,9 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,21 +735,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Shifts/List.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
           <caret line="45" column="11" lean-forward="false" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -747,10 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <marker date="1512667338039" expanded="true" signature="446:525" ph="SELECT * FRO... person" />
-            <marker date="1512667338039" expanded="true" signature="685:834" ph="SELECT p.`fi... person" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -772,9 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -782,7 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
           <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="48" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
           <caret line="58" column="45" lean-forward="true" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,7 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,9 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -840,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,9 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -858,9 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -868,7 +858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,7 +865,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -884,15 +872,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -900,19 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="162" column="1" lean-forward="true" selection-start-line="162" selection-start-column="1" selection-end-line="172" selection-end-column="5" />
-          <folding>
-            <marker date="1512842593698" expanded="true" signature="461:546" ph="SELECT * FRO... person" />
-            <marker date="1512842593698" expanded="true" signature="1363:1648" ph="SELECT c.id,... patient" />
-            <marker date="1512842593698" expanded="true" signature="2208:2333" ph="DELETE FROM patient_staff" />
-            <marker date="1512842593698" expanded="true" signature="2531:2743" ph="SELECT s.id,... person" />
-            <marker date="1512842593698" expanded="true" signature="2946:3247" ph="SELECT s.id,... person" />
-            <marker date="1512842593698" expanded="true" signature="3120:3212" ph="SELECT ps.st... patient_staff" />
-            <marker date="1512842593698" expanded="true" signature="3411:3521" ph="SELECT * FRO... person" />
-            <marker date="1512842593698" expanded="true" signature="3814:4018" ph="SELECT * FRO... bed" />
-            <marker date="1512842593698" expanded="true" signature="3895:3983" ph="SELECT pb.be... patient_bed" />
-            <marker date="1512842593698" expanded="true" signature="4565:4682" ph="SELECT b.* F... bed" />
-            <marker date="1512842593698" expanded="true" signature="4886:5010" ph="DELETE FROM patient_bed" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -920,7 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,7 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-737">
           <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="20" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,15 +907,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="65" column="18" lean-forward="true" selection-start-line="65" selection-start-column="18" selection-end-line="67" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/View.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="990">
           <caret line="71" column="17" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -973,7 +933,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/List.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
+        <state relative-caret-position="1320">
           <caret line="92" column="8" lean-forward="false" selection-start-line="92" selection-start-column="8" selection-end-line="95" selection-end-column="49" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -983,7 +943,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/misc/temp.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
+        <state relative-caret-position="3165">
           <caret line="211" column="29" lean-forward="false" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="29" />
           <folding />
         </state>
@@ -991,8 +951,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/routes/schedule.route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+        <state relative-caret-position="2145">
+          <caret line="143" column="5" lean-forward="false" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
           <folding>
             <marker date="1512950442475" expanded="true" signature="979:1281" ph="SELECT s.id,... person" />
             <marker date="1512950442475" expanded="true" signature="1153:1246" ph="SELECT sa.st... staff_appointment" />
@@ -1024,7 +984,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Services/HttpServices/SchedulingService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
+        <state relative-caret-position="1155">
           <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
           <folding />
         </state>
@@ -1032,16 +992,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Components/SideNav.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+        <state relative-caret-position="1065">
+          <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Components/Scheduling/Appointments/Report.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        <state relative-caret-position="645">
+          <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -1050,8 +1010,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
+        <state relative-caret-position="900">
           <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>

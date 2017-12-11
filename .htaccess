@@ -1,6 +1,13 @@
 RewriteEngine On     # Turn on the rewriting engine
 
-RewriteRule     ^$ /server/index.php [QSA,L,NC]
+#Match a url that starts with /api/ and redirect to the api.
+RewriteCond %{REQUEST_URI} ^/api/ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ api/index.php [QSA,L]
+
+#Any static files are served up as is.
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule . /api/index.php [QSA]
+
+#None matched urls are redirected to the client side html file.
+RewriteRule ^(.*)$ /client/index.html [QSA,L]
