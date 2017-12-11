@@ -11,3 +11,8 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 
 #None matched urls are redirected to the client side html file.
 RewriteRule ^(.*)$ /client/index.html [QSA,L]
+
+
+#Redirect Root to the client index page.
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /client/index.html [QSA,L]
