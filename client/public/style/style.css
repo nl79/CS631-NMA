@@ -8,3 +8,7 @@ table.plus tr:hover {
 table.minus tr:hover {
   cursor: e-resize;
 }
+
+div.clear-both {
+  clear: both;
+}

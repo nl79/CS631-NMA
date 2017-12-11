@@ -111,10 +111,16 @@ export class Person extends Component {
   }
 
   onChange(fields) {
-    this.setState({data: {...fields}});
+    /*
+    this.setState({
+      data: {...fields},
+      changed: true
+    });
     if(this.props.onChange) {
       this.props.onChange(fields);
     }
+    */
+
   }
 
   onReset() {
@@ -127,7 +133,8 @@ export class Person extends Component {
         title="Personal Information"
         fields={fields}
         data={this.state.data}
-        onSubmit={ this.onSubmit.bind(this) }/>
+        onSubmit={ this.onSubmit.bind(this) }
+        onChange={ this.onChange.bind(this) }/>
     );
   }
 }

@@ -40,7 +40,11 @@ export class Form extends Component {
   }
 
   onChange(field, value) {
-    this.setState({ ...this.state, [field.name]: value },
+    this.setState({
+      ...this.state,
+      [field.name]: value,
+      __changed: true
+    },
     (e)=> {
       if(this.props.onChange) {
         this.props.onChange({...this.state});
@@ -55,12 +59,24 @@ export class Form extends Component {
     }
   }
 
+  onDelete() {
+    if(this.props.onDelete) {
+      this.props.onDelete({...this.state});
+    }
+  }
+
   getData() { }
 
   render() {
     return (
       <form className={this.props.className || ''}>
-        <h4>{this.props.title || '' }</h4>
+        <h4>
+          {this.props.title || '' }
+          { this.props.delete === true
+            ? <button type="button" onClick={this.onDelete.bind(this)} className="btn btn-danger pull-right">X</button>
+            : null
+          }
+        </h4>
         {
           this.props.fields.map((o, i) => {
             if(o.type === 'hidden') { return; }
@@ -76,10 +92,11 @@ export class Form extends Component {
           })
         }
         {
-          this.props.onSubmit
-            ? <button type="button" onClick={this.onSubmit.bind(this)} className="btn btn-primary">Submit</button>
+          (this.props.onSubmit && this.state.__changed === true)
+            ? <button type="button" onClick={this.onSubmit.bind(this)} className="btn btn-primary pull-right">Submit</button>
             : null
         }
+        <div className='clear-both'></div>
       </form>
     );
   }
