@@ -31,6 +31,8 @@ return function($router, $req = null, $db = null) {
     if($patient->save()) {
       echo(json_encode($patient->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($patient->getErrors()));
     }
   });
@@ -66,6 +68,8 @@ return function($router, $req = null, $db = null) {
     if($pc->save()) {
       echo(json_encode($pc->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($pc->getErrors()));
     }
 
@@ -93,6 +97,8 @@ return function($router, $req = null, $db = null) {
     if($ps->save()) {
       echo(json_encode($ps->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($ps->getErrors()));
     }
 
@@ -216,6 +222,8 @@ return function($router, $req = null, $db = null) {
     if($pb->save()) {
       echo(json_encode($pb->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($pb->getErrors()));
     }
   });

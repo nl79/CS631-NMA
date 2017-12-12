@@ -10,6 +10,8 @@ return function($router, $req = null, $db = null) {
     if($person->save()) {
       echo(json_encode($person->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($person->getErrors()));
     }
 
@@ -23,6 +25,19 @@ return function($router, $req = null, $db = null) {
       header("Status: 404 Not Found");
     }
 
+  });
+
+  $router->delete('/:id', function($router, $params) use ($req, $db) {
+    $person = $db->model('person');
+    $result = $person->deleteById($params['id']);
+
+    if($result === true) {
+      http_response_code(200);
+    } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
+      echo(json_encode($person->getErrors()));
+    }
   });
 
   $router->get('/search', function($router, $params) use ($req, $db) {

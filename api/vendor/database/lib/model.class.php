@@ -118,7 +118,7 @@ class Model extends row {
    *@return Boolean - returns true on success or false on failure.
    */
   public function populate($idField, $tablename, $fieldname) {
-    
+
   }
 
   /*
@@ -129,7 +129,8 @@ class Model extends row {
     //validate the the entity_id is set and not empty.
     $valid = is_numeric($this->getPrimaryKey());
     if($valid && parent::delete()->exec()) {
-      return $this->reset();
+      $this->reset();
+      return true;
     } else {
       return false;
     }

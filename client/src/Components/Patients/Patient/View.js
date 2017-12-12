@@ -5,6 +5,8 @@ import { Form } from '../../Common';
 
 import { Conditions } from '../Conditions';
 
+import {browserHistory} from "react-router";
+
 export class View extends Component {
   constructor(props) {
     super(props);
@@ -53,13 +55,18 @@ export class View extends Component {
 
   }
 
+  onPersonDeleteSuccess(fields) {
+    browserHistory.push('/patients/list');
+  }
+
   render() {
     return (
       <div>
         <h2>Patient Information</h2>
         <Person
           id={this.state.id}
-          onSubmit={ this.onPersonSubmit.bind(this) } />
+          onSubmit={ this.onPersonSubmit.bind(this) }
+          onDeleteSuccess={this.onPersonDeleteSuccess.bind(this)} />
 
         <Patient
           id={this.state.id}

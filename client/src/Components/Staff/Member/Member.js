@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form } from '../../Common';
 
-import { State } from '../../../Utils';
+import { State, parseError } from '../../../Utils';
 
 import { StaffService } from '../../../Services/HttpServices/StaffService';
 
@@ -128,14 +128,24 @@ export class Member extends Component {
     // Save the person object.
     StaffService.save(fields)
       .then((res) => {
+
         if(res.data.id) {
-          this.setState({data: {...res.data}}, (o) => {
-            if(this.props.onSubmit) {
-              this.props.onSubmit(this.state.data);
-            }
-          });
+          this.setState({data: {...res.data}, error: ''});
+          if(this.props.onSubmit) {
+            this.props.onSubmit(res.data);
+          }
+        } else {
+          // Report Error
         }
-      });
+
+      }).catch((e) => {
+        let result = parseError(e.response.data);
+        this.setState({data: {...fields}, error: result});
+      })
+  }
+
+  onDelete(fields) {
+    console.log('onDelete', fields);
   }
 
   render() {
@@ -147,8 +157,9 @@ export class Member extends Component {
       <Form
         title="Staff Member Information"
         fields={fields}
+        error={this.state.error}
         data={this.state.data}
-        onSubmit={ this.onSubmit.bind(this) } />
+        onSubmit={ this.onSubmit.bind(this) }/>
     );
   }
 }

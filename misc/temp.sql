@@ -53,7 +53,7 @@ CREATE TABLE staff (
   `status`     ENUM ('active', 'inactive')                            NOT NULL  DEFAULT 'active',
 
   PRIMARY KEY (snum),
-  FOREIGN KEY (id) REFERENCES person (id)
+  FOREIGN KEY (id) REFERENCES person (id) ON DELETE CASCADE
   -- foreign key(`type`) references staff_type(id)
 );
 
@@ -85,8 +85,8 @@ CREATE TABLE staff_shift (
   staff INT NOT NULL,
   shift INT NOT NULL,
 
-  FOREIGN KEY (staff) REFERENCES staff (id),
-  FOREIGN KEY (shift) REFERENCES shift (id)
+  FOREIGN KEY (staff) REFERENCES staff (id) ON DELETE CASCADE,
+  FOREIGN KEY (shift) REFERENCES shift (id) ON DELETE CASCADE
 );
 
 
@@ -113,11 +113,11 @@ CREATE TABLE patient (
   admit_date  DATE                                                    NOT NULL,
   cholesterol CHAR(10)                                                NOT NULL,
   blood_sugar INT(4)                                                  NOT NULL,
-  `primary`   INT                                                     NULL,
+  `primary`   INT                                                     NULL	 DEFAULT NULL,
 
   PRIMARY KEY (pnum),
-  FOREIGN KEY (id) REFERENCES person (id),
-  FOREIGN KEY (`primary`) REFERENCES staff (id)
+  FOREIGN KEY (id) REFERENCES person (id) ON DELETE CASCADE,
+  FOREIGN KEY (`primary`) REFERENCES staff (id) ON DELETE SET NULL
 );
 
 -- FACILITIES SECTION
@@ -137,23 +137,23 @@ CREATE TABLE bed (
   rnum     INT                                               NOT NULL,
 
   PRIMARY KEY (id),
-  FOREIGN KEY (rnum) REFERENCES room (id)
+  FOREIGN KEY (rnum) REFERENCES room (id) ON DELETE CASCADE
 );
 
 CREATE TABLE patient_bed (
-  patient INT NOT NULL,
-  bed     INT NOT NULL,
+  patient 	INT NULL,
+  bed     	INT  NULL,
 
-  FOREIGN KEY (patient) REFERENCES patient (id),
-  FOREIGN KEY (bed) REFERENCES bed (id)
+  FOREIGN KEY (patient) REFERENCES patient (id) ON DELETE CASCADE,
+  FOREIGN KEY (bed) REFERENCES bed (id) ON DELETE CASCADE
 );
 
 CREATE TABLE patient_staff (
   patient INT NOT NULL,
   staff   INT NOT NULL,
 
-  FOREIGN KEY (patient) REFERENCES patient (id),
-  FOREIGN KEY (staff) REFERENCES staff (id)
+  FOREIGN KEY (patient) REFERENCES patient (id) ON DELETE CASCADE,
+  FOREIGN KEY (staff) REFERENCES staff (id) ON DELETE CASCADE
 );
 
 CREATE TABLE appointment_type (
@@ -181,7 +181,7 @@ CREATE TABLE appointment (
   patient     INT  NOT NULL,
 
   PRIMARY KEY (id),
-  FOREIGN KEY (patient) REFERENCES patient (id)
+  FOREIGN KEY (patient) REFERENCES patient (id) ON DELETE CASCADE
 );
 
 CREATE TABLE surgery_type (
@@ -205,16 +205,16 @@ CREATE TABLE staff_appointment (
   appt  INT NOT NULL,
   staff INT NOT NULL,
 
-  FOREIGN KEY (appt) REFERENCES appointment (id),
-  FOREIGN KEY (staff) REFERENCES staff (id)
+  FOREIGN KEY (appt) REFERENCES appointment (id) ON DELETE CASCADE,
+  FOREIGN KEY (staff) REFERENCES staff (id) ON DELETE CASCADE
 );
 
 CREATE TABLE appointment_room (
   appt  INT NOT NULL,
   room INT NOT NULL,
 
-  FOREIGN KEY (appt) REFERENCES appointment (id),
-  FOREIGN KEY (room) REFERENCES room (id)
+  FOREIGN KEY (appt) REFERENCES appointment (id) ON DELETE CASCADE,
+  FOREIGN KEY (room) REFERENCES room (id) ON DELETE CASCADE
 );
 
 CREATE TABLE history (
@@ -257,8 +257,8 @@ CREATE TABLE patient_condition (
   patient     INT NOT NULL,
   `condition` INT NOT NULL,
 
-  FOREIGN KEY (patient) REFERENCES patient (id),
-  FOREIGN KEY (`condition`) REFERENCES `condition` (id)
+  FOREIGN KEY (patient) REFERENCES patient (id) ON DELETE CASCADE,
+  FOREIGN KEY (`condition`) REFERENCES `condition` (id) ON DELETE CASCADE
 );
 
 CREATE TABLE prescription (

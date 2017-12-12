@@ -11,6 +11,8 @@ return function($router, $req = null, $db = null) {
     if($condition->save()) {
       echo(json_encode($condition->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($condition->getErrors()));
     }
 
@@ -21,7 +23,7 @@ return function($router, $req = null, $db = null) {
     if(!$person->isEmpty()) {
       echo(json_encode($person->toArray()));
     } else {
-      header("Status: 404 Not Found");
+      http_response_code(404);
     }
 
   });

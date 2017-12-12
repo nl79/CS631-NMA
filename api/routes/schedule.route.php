@@ -37,6 +37,8 @@ return function($router, $req = null, $db = null) {
     if($model->save()) {
       echo(json_encode($model->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($model->getErrors()));
     }
   });
@@ -96,6 +98,8 @@ return function($router, $req = null, $db = null) {
     if($model->save()) {
       echo(json_encode($model->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($model->getErrors()));
     }
   });
@@ -159,6 +163,8 @@ return function($router, $req = null, $db = null) {
     if($model->save()) {
       echo(json_encode($model->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($model->getErrors()));
     }
   });
@@ -272,6 +278,8 @@ return function($router, $req = null, $db = null) {
     if($shift->save()) {
       echo(json_encode($shift->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($shift->getErrors()));
     }
   });
@@ -309,6 +317,8 @@ return function($router, $req = null, $db = null) {
     if($model->save()) {
       echo(json_encode($model->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($model->getErrors()));
     }
   });

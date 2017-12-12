@@ -3,6 +3,8 @@ import { Person } from '../../Person';
 import { Member } from './Member';
 import { Form } from '../../Common';
 
+import {browserHistory} from "react-router";
+
 export class View extends Component {
   constructor(props) {
     super(props);
@@ -39,25 +41,34 @@ export class View extends Component {
   }
 
   onMemberSubmit(fields) {
-    console.log('onMemberSubmit', fields);
+    browserHistory.push('/staff/list');
   }
 
   onConditionSubmit(fields) {
 
   }
 
+  onPersonDelete(fields) {
+    return true;
+  }
+
+  onPersonDeleteSuccess(fields) {
+    browserHistory.push('/staff/list');
+  }
   render() {
     return (
       <div>
         <h2>Staff Information</h2>
         <Person
           id={this.state.id}
-          onSubmit={ this.onPersonSubmit.bind(this) } />
+          onSubmit={ this.onPersonSubmit.bind(this) }
+          onDelete={ this.onPersonDelete.bind(this) }
+          onDeleteSuccess={ this.onPersonDeleteSuccess.bind(this) }
+           />
 
         <Member
           id={this.state.id}
-          onSubmit={ this.onMemberSubmit.bind(this) }
-          onLoad={ this.onMemberSubmit.bind(this) } />
+          onSubmit={ this.onMemberSubmit.bind(this) }/>
 
       </div>
     )

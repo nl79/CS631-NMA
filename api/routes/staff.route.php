@@ -10,6 +10,8 @@ return function($router, $req = null, $db = null) {
     if($staff->save()) {
       echo(json_encode($staff->toArray()));
     } else {
+      http_response_code(400);
+      header('Content-Type: application/json');
       echo(json_encode($staff->getErrors()));
     }
   });

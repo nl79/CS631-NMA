@@ -72,7 +72,7 @@ export class Form extends Component {
       <form className={this.props.className || ''}>
         <h4>
           {this.props.title || '' }
-          { this.props.delete === true
+          { (this.props.delete === true || this.props.onDelete)
             ? <button type="button" onClick={this.onDelete.bind(this)} className="btn btn-danger pull-right">X</button>
             : null
           }
@@ -80,7 +80,12 @@ export class Form extends Component {
         {
           this.props.fields.map((o, i) => {
             if(o.type === 'hidden') { return; }
-            return (<div key={i} className="form-group">
+            let className = 'form-group';
+
+            if(this.props.error && this.props.error[o.name]) {
+              className += ' has-error';
+            }
+            return (<div key={i} className={className}>
               <label className='control-label'>{o.label}</label>
               <Field
                 className="form-control"

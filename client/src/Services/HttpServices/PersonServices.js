@@ -9,6 +9,11 @@ export const PersonService = {
     return axios.post(url, params);
   },
 
+  delete(id) {
+    let url = `${prefix}/${id}`;
+    return axios.delete(url);
+  },
+
   get(id) {
     let url = `${prefix}/${id}`;
     return axios.get(url);

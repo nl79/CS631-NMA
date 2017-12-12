@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Person } from '../../Person';
 import { Form } from '../../Common';
 
-import { State } from '../../../Utils';
+import { State, parseError } from '../../../Utils';
 
 import { PatientService } from '../../../Services/HttpServices/PatientService';
 import { StaffService } from '../../../Services/HttpServices/StaffService';
@@ -139,14 +139,20 @@ export class Patient extends Component {
     // Save the person object.
     PatientService.save(fields)
       .then((res) => {
+
         if(res.data.id) {
-          this.setState({data: {...res.data}}, (o) => {
-            if(this.props.onSubmit) {
-              this.props.onSubmit(this.state.data);
-            }
-          });
+          this.setState({data: {...res.data}, error: ''});
+          if(this.props.onSubmit) {
+            this.props.onSubmit(res.data);
+          }
+        } else {
+          // Report Error
         }
-      });
+
+      }).catch((e) => {
+        let result = parseError(e.response.data);
+        this.setState({data: {...fields}, error: result});
+      })
   }
 
   render() {
@@ -158,6 +164,7 @@ export class Patient extends Component {
       <Form
         title="Patient Information"
         fields={this.state.fields}
+        error={this.state.error}
         data={this.state.data}
         onSubmit={ this.onSubmit.bind(this) } />
     );

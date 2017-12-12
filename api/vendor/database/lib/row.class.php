@@ -271,7 +271,7 @@ class Row
       if(!$field->validate()) {
 
         // Store the error localy.
-        $errors[] = $field->getErrors();
+        $errors[$field->getName()] = $field->getErrors();
 
         #set the valid flag to false.
         $this->_valid = false;
@@ -423,7 +423,7 @@ class Row
     $escape = function($n) {
       return "`$n`";
     };
-    
+
     // Set the field names.
     $sql .= '(' . implode(',', array_map($escape, $this->getFieldNames())) . ')';
 
