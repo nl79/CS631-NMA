@@ -74,7 +74,6 @@ export const SchedulingService = {
   },
 
   appointmentsBy(type, id) {
-    console.log('reportsBy', type, id);
     if(!type || !id) {
       return Promise.resolve({data: []});
     }

@@ -18,7 +18,6 @@ export class Report extends Component {
   }
 
   componentWillMount() {
-   //console.log('Report#componentWillMount', this);
   }
 
   componentWillReceiveProps(props) {

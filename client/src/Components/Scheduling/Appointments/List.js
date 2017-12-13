@@ -68,7 +68,6 @@ export class List extends Component {
   onSearch(q) {
 
     SchedulingService.search(q).then(res => {
-      console.log('serach#res', res);
       this.setState({
         ...this.state,
         list: res.data || []

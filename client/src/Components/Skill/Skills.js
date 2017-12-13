@@ -21,7 +21,6 @@ export class Skills extends Component {
     if(id) {
       PersonService.skills(id).then((res) => {
         this.setState({data: res.data}, (o) => {
-          console.log('this.state', this.state);
         })
 
       });

@@ -21,7 +21,6 @@ export class Conditions extends Component {
     if(id) {
       PatientService.conditions(id).then((res) => {
         this.setState({data: res.data}, (o) => {
-          console.log('this.state', this.state);
         })
 
       });

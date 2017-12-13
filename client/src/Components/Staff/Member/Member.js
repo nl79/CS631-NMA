@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form } from '../../Common';
 
-import { State, parseError } from '../../../Utils';
+import { State, parseError, Datetime } from '../../../Utils';
 
 import { StaffService } from '../../../Services/HttpServices/StaffService';
 
@@ -36,7 +36,6 @@ const fields = [
     default: 'salary',
     placeholder: 'Staff Type...',
     onChange: (e)=> {
-      console.log('ontypeChange',e);
     }
   },
   /*
@@ -69,7 +68,8 @@ const fields = [
     name:"start_date",
     label:"Start Date",
     type:"date",
-    placeholder: 'Start Date...'
+    placeholder: 'Start Date...',
+    validate: Datetime.date
   }
 ];
 
@@ -145,7 +145,6 @@ export class Member extends Component {
   }
 
   onDelete(fields) {
-    console.log('onDelete', fields);
   }
 
   render() {

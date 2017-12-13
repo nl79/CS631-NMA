@@ -17,7 +17,6 @@ export class List extends Component {
   }
 
   componentWillMount() {
-    console.log('Staff$List#omponentWillMount#props', this.props);
     if(this.props.autoFetch !== false) {
       this.fetch();
     }
@@ -46,7 +45,6 @@ export class List extends Component {
 
 
   componentWillReceiveProps(props) {
-    console.log('Staff$ListcomponentWillReceiveProps#props', props);
     this.fetch();
   }
 
@@ -76,7 +74,6 @@ export class List extends Component {
     });
 /*
     StaffService.search(q).then(res => {
-      console.log('serach#res', res);
       this.setState({
         ...this.state,
         list: res.data || []

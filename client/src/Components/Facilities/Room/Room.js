@@ -66,13 +66,10 @@ export class Room extends Component {
   }
 
   componentWillMount() {
-    console.log('Room#componentWillMount', this);
     this.fetch(this.props.id);
   }
 
   componentWillReceiveProps(props) {
-
-    console.log('Room#componentWillReceiveProps', props);
 
     if(!props.id){
       this.setState((e) => {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Person } from '../../Person';
 import { Form } from '../../Common';
 
-import { State, parseError } from '../../../Utils';
+import { State, parseError, Datetime } from '../../../Utils';
 
 import { PatientService } from '../../../Services/HttpServices/PatientService';
 import { StaffService } from '../../../Services/HttpServices/StaffService';
@@ -33,7 +33,8 @@ const fields = [
     name:"admit_date",
     label:"Date of Admission",
     type:"date",
-    placeholder: 'Date of Admission...'
+    placeholder: 'Date of Admission...',
+    validate: Datetime.date
   },
   {
     name:"cholesterol",

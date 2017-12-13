@@ -36,7 +36,6 @@ export class Medication extends Component {
   }
 
   onChange(fields) {
-    console.log('onChange#fields', fields);
   }
 
   onReset() {

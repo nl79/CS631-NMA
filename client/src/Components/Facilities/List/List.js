@@ -16,7 +16,6 @@ export class List extends Component {
   }
 
   componentWillMount() {
-    console.log('Facilities$List#omponentWillMount#props', this.props);
     if(this.props.autoFetch !== false) {
       this.fetch();
     }
@@ -43,7 +42,6 @@ export class List extends Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log('Facilities$ListcomponentWillReceiveProps#props', props);
     this.fetch();
   }
 

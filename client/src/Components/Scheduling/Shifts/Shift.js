@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from '../../Common';
-import { State } from '../../../Utils';
+import { State, Datetime } from '../../../Utils';
 
 import { SchedulingService } from '../../../Services/HttpServices/SchedulingService';
 
@@ -28,7 +28,8 @@ const fields = [
     name:"date",
     label:"Shift Date",
     type:"date",
-    placeholder: 'YYYY-MM-DD'
+    placeholder: 'YYYY-MM-DD',
+    validate: Datetime.date
   }
 ];
 
@@ -62,13 +63,10 @@ export class Shift extends Component {
   }
 
   componentWillMount() {
-    console.log('Shift#componentWillMount', this);
     this.fetch(this.props.id);
   }
 
   componentWillReceiveProps(props) {
-
-    console.log('Shift#componentWillReceiveProps', props);
 
     if(!props.id){
       this.setState((e) => {

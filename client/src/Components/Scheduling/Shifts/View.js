@@ -11,7 +11,6 @@ export class View extends Component {
   }
 
   componentWillReceiveProps(props) {
-    //console.log('Room#vew#componentWillReceiveProps', props);
     let id = props.id || props.routeParams.id;
     if(!id) {
       this.setState({id: null}, () => {
@@ -20,7 +19,6 @@ export class View extends Component {
   }
 
   componentWillMount() {
-    //console.log('Room#vew#componentWillMount', this);
 
     // Check if an id was supplied
     let id = this.props.id || this.props.routeParams.id;

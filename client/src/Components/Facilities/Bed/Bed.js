@@ -43,7 +43,6 @@ export class Bed extends Component {
   }
 
   componentWillMount() {
-    //console.log('Bed#componentWillMount', this);
   }
 
   onSubmit(params) {

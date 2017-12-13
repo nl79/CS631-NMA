@@ -10,7 +10,6 @@ export class List extends Component {
   }
 
   onRowClick(o) {
-    console.log('clicked', o);
   }
 
   render() {

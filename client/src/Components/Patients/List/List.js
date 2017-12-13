@@ -30,7 +30,6 @@ export class List extends Component {
   onSearch(q) {
 
     PatientService.search(q).then(res => {
-      console.log('serach#res', res);
       this.setState({
         ...this.state,
         list: res.data || []

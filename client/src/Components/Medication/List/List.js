@@ -15,13 +15,11 @@ export class List extends Component {
   componentWillMount() {
     /*
     PatientService.list().then(res => {
-      console.log('res', res);
     })
     */
 
   }
   submit() {
-    console.log('submit', this.state.query);
 
   }
   render() {

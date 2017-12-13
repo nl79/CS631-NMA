@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from '../Common';
-import { State, parseError } from '../../Utils';
+import { State, parseError, Datetime } from '../../Utils';
 import moment from 'moment';
 
 
@@ -37,65 +37,8 @@ const fields = [
     label:"Date of Birth",
     type: "date",
     placeholder: 'Date of Birth(YYYY-MM-DD)..',
-    onKeyPress: (o) =>{
-
-    },
     maxlength: 10,
-    validate: (o) => {
-      console.log("0", o);
-      console.log('o.length', o.length);
-      //([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
-      var dt = moment(o);
-
-      // Try to match full date.
-      /*
-      if(dt.isValid()) {
-        console.log("1");
-        return true;
-      }
-      */
-
-      /*
-
-      if(o.match(/(\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/)){
-        console.log("2");
-        return true;
-      }
-
-      if(o.match(/(\d{3}-([01])|(0[1-9]|1[0-2]))-/)){
-        console.log("3");
-        return true;
-      }
-
-      if(o.match(/(\d{3}-([01])|(0[1-9]|1[0-2]))/)){
-        console.log("4");
-        return true;
-      }
-
-      if(o.match(/(\d{3})-$/)){
-        console.log("5");
-        return true;
-      }
-
-      if(o.length <= 4 && !isNaN(o)) {
-        console.log("7");
-
-        return true;
-      }
-
-      */
-      return !isNaN(o);
-
-      console.log("here");
-
-      return false;
-      //return !isNaN(o);
-
-    },
-    format: (val) => {
-      console.log('val', val);
-      return val;
-    }
+    validate: Datetime.date
   },
   {
     name:"phnumb",

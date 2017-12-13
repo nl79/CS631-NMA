@@ -21,7 +21,6 @@ export class Beds extends Component {
     if(id) {
       FacilitiesService.getBeds(id).then((res) => {
         this.setState({data: res.data}, (o) => {
-          console.log('this.state', this.state);
         })
 
       });
