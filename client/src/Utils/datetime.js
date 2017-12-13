@@ -23,3 +23,24 @@ export const date = (o) => {
 
   return false;
 }
+
+export const time = (o) => {
+  if(o.length <= 2 && !isNaN(o) && o <=24) {
+    return true;
+  }
+
+  if(o.match(/^(0[0-9]{0,1}|[12][0-4]{0,1})$/)){
+    return true;
+  }
+
+  if(o.match(/^(0[0-9]{0,1}|[12][0-4]{0,1}):$/)){
+    return true;
+  }
+
+  if(o.match(/^(0[0-9]{0,1}|[12][0-4]{0,1}):(0[0-9]{0,1}|[1-5][0-9]{0,1})$/)){
+    return true;
+  }
+
+  return false;
+
+}

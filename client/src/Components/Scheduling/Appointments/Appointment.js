@@ -41,7 +41,8 @@ const fields = [
     name:"time",
     label:"Time",
     type:"time",
-    placeholder: 'HH:MM'
+    placeholder: 'HH:MM',
+    validate: Datetime.time
   },
   {
     name:"description",
